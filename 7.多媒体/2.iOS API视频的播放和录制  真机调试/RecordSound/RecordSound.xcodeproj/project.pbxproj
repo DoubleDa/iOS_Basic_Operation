@@ -1,0 +1,437 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		772CAAD01B22F7050099008E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772CAACF1B22F7050099008E /* AppDelegate.swift */; };
+		772CAAD31B22F7050099008E /* RecordSound.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 772CAAD11B22F7050099008E /* RecordSound.xcdatamodeld */; };
+		772CAAD51B22F7050099008E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772CAAD41B22F7050099008E /* ViewController.swift */; };
+		772CAAD81B22F7050099008E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 772CAAD61B22F7050099008E /* Main.storyboard */; };
+		772CAADA1B22F7050099008E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 772CAAD91B22F7050099008E /* Images.xcassets */; };
+		772CAADD1B22F7050099008E /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 772CAADB1B22F7050099008E /* LaunchScreen.xib */; };
+		772CAAE91B22F7050099008E /* RecordSoundTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772CAAE81B22F7050099008E /* RecordSoundTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		772CAAE31B22F7050099008E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 772CAAC21B22F7050099008E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 772CAAC91B22F7050099008E;
+			remoteInfo = RecordSound;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		772CAACA1B22F7050099008E /* RecordSound.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RecordSound.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		772CAACE1B22F7050099008E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		772CAACF1B22F7050099008E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		772CAAD21B22F7050099008E /* RecordSound.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RecordSound.xcdatamodel; sourceTree = "<group>"; };
+		772CAAD41B22F7050099008E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		772CAAD71B22F7050099008E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		772CAAD91B22F7050099008E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		772CAADC1B22F7050099008E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		772CAAE21B22F7050099008E /* RecordSoundTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RecordSoundTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		772CAAE71B22F7050099008E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		772CAAE81B22F7050099008E /* RecordSoundTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordSoundTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		772CAAC71B22F7050099008E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		772CAADF1B22F7050099008E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		772CAAC11B22F7050099008E = {
+			isa = PBXGroup;
+			children = (
+				772CAACC1B22F7050099008E /* RecordSound */,
+				772CAAE51B22F7050099008E /* RecordSoundTests */,
+				772CAACB1B22F7050099008E /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		772CAACB1B22F7050099008E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				772CAACA1B22F7050099008E /* RecordSound.app */,
+				772CAAE21B22F7050099008E /* RecordSoundTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		772CAACC1B22F7050099008E /* RecordSound */ = {
+			isa = PBXGroup;
+			children = (
+				772CAACF1B22F7050099008E /* AppDelegate.swift */,
+				772CAAD41B22F7050099008E /* ViewController.swift */,
+				772CAAD61B22F7050099008E /* Main.storyboard */,
+				772CAAD91B22F7050099008E /* Images.xcassets */,
+				772CAADB1B22F7050099008E /* LaunchScreen.xib */,
+				772CAAD11B22F7050099008E /* RecordSound.xcdatamodeld */,
+				772CAACD1B22F7050099008E /* Supporting Files */,
+			);
+			path = RecordSound;
+			sourceTree = "<group>";
+		};
+		772CAACD1B22F7050099008E /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				772CAACE1B22F7050099008E /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		772CAAE51B22F7050099008E /* RecordSoundTests */ = {
+			isa = PBXGroup;
+			children = (
+				772CAAE81B22F7050099008E /* RecordSoundTests.swift */,
+				772CAAE61B22F7050099008E /* Supporting Files */,
+			);
+			path = RecordSoundTests;
+			sourceTree = "<group>";
+		};
+		772CAAE61B22F7050099008E /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				772CAAE71B22F7050099008E /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		772CAAC91B22F7050099008E /* RecordSound */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 772CAAEC1B22F7050099008E /* Build configuration list for PBXNativeTarget "RecordSound" */;
+			buildPhases = (
+				772CAAC61B22F7050099008E /* Sources */,
+				772CAAC71B22F7050099008E /* Frameworks */,
+				772CAAC81B22F7050099008E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = RecordSound;
+			productName = RecordSound;
+			productReference = 772CAACA1B22F7050099008E /* RecordSound.app */;
+			productType = "com.apple.product-type.application";
+		};
+		772CAAE11B22F7050099008E /* RecordSoundTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 772CAAEF1B22F7050099008E /* Build configuration list for PBXNativeTarget "RecordSoundTests" */;
+			buildPhases = (
+				772CAADE1B22F7050099008E /* Sources */,
+				772CAADF1B22F7050099008E /* Frameworks */,
+				772CAAE01B22F7050099008E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				772CAAE41B22F7050099008E /* PBXTargetDependency */,
+			);
+			name = RecordSoundTests;
+			productName = RecordSoundTests;
+			productReference = 772CAAE21B22F7050099008E /* RecordSoundTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		772CAAC21B22F7050099008E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0620;
+				ORGANIZATIONNAME = "游义男";
+				TargetAttributes = {
+					772CAAC91B22F7050099008E = {
+						CreatedOnToolsVersion = 6.2;
+					};
+					772CAAE11B22F7050099008E = {
+						CreatedOnToolsVersion = 6.2;
+						TestTargetID = 772CAAC91B22F7050099008E;
+					};
+				};
+			};
+			buildConfigurationList = 772CAAC51B22F7050099008E /* Build configuration list for PBXProject "RecordSound" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 772CAAC11B22F7050099008E;
+			productRefGroup = 772CAACB1B22F7050099008E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				772CAAC91B22F7050099008E /* RecordSound */,
+				772CAAE11B22F7050099008E /* RecordSoundTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		772CAAC81B22F7050099008E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				772CAAD81B22F7050099008E /* Main.storyboard in Resources */,
+				772CAADD1B22F7050099008E /* LaunchScreen.xib in Resources */,
+				772CAADA1B22F7050099008E /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		772CAAE01B22F7050099008E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		772CAAC61B22F7050099008E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				772CAAD51B22F7050099008E /* ViewController.swift in Sources */,
+				772CAAD31B22F7050099008E /* RecordSound.xcdatamodeld in Sources */,
+				772CAAD01B22F7050099008E /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		772CAADE1B22F7050099008E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				772CAAE91B22F7050099008E /* RecordSoundTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		772CAAE41B22F7050099008E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 772CAAC91B22F7050099008E /* RecordSound */;
+			targetProxy = 772CAAE31B22F7050099008E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		772CAAD61B22F7050099008E /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				772CAAD71B22F7050099008E /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		772CAADB1B22F7050099008E /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				772CAADC1B22F7050099008E /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		772CAAEA1B22F7050099008E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		772CAAEB1B22F7050099008E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		772CAAED1B22F7050099008E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = RecordSound/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		772CAAEE1B22F7050099008E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = RecordSound/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		772CAAF01B22F7050099008E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = RecordSoundTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RecordSound.app/RecordSound";
+			};
+			name = Debug;
+		};
+		772CAAF11B22F7050099008E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = RecordSoundTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RecordSound.app/RecordSound";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		772CAAC51B22F7050099008E /* Build configuration list for PBXProject "RecordSound" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				772CAAEA1B22F7050099008E /* Debug */,
+				772CAAEB1B22F7050099008E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		772CAAEC1B22F7050099008E /* Build configuration list for PBXNativeTarget "RecordSound" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				772CAAED1B22F7050099008E /* Debug */,
+				772CAAEE1B22F7050099008E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		772CAAEF1B22F7050099008E /* Build configuration list for PBXNativeTarget "RecordSoundTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				772CAAF01B22F7050099008E /* Debug */,
+				772CAAF11B22F7050099008E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		772CAAD11B22F7050099008E /* RecordSound.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				772CAAD21B22F7050099008E /* RecordSound.xcdatamodel */,
+			);
+			currentVersion = 772CAAD21B22F7050099008E /* RecordSound.xcdatamodel */;
+			path = RecordSound.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 772CAAC21B22F7050099008E /* Project object */;
+}
