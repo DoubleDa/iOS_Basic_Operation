@@ -1,0 +1,63 @@
+!SESSION 2015-06-27 15:55:56.293 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.7.0_45
+java.vendor=Oracle Corporation
+BootLoader constants: OS=macosx, ARCH=x86_64, WS=cocoa, NL=zh_CN
+Framework arguments:  -keyring /Users/youyinan/.eclipse_keyring -showlocation
+Command-line arguments:  -os macosx -ws cocoa -arch x86_64 -keyring /Users/youyinan/.eclipse_keyring -showlocation
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2015-06-27 15:56:44.735
+!MESSAGE Failed to retrieve plugin descriptor for org.apache.maven.plugins:maven-clean-plugin:2.4.1: Plugin org.apache.maven.plugins:maven-clean-plugin:2.4.1 or one of its dependencies could not be resolved: Failed to read artifact descriptor for org.apache.maven.plugins:maven-clean-plugin:jar:2.4.1
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2015-06-27 15:56:44.799
+!MESSAGE Failed to retrieve plugin descriptor for org.apache.maven.plugins:maven-clean-plugin:2.4.1: Plugin org.apache.maven.plugins:maven-clean-plugin:2.4.1 or one of its dependencies could not be resolved: Failed to read artifact descriptor for org.apache.maven.plugins:maven-clean-plugin:jar:2.4.1
+
+!ENTRY com.genuitec.eclipse.wizards 1 0 2015-06-27 15:56:54.858
+!MESSAGE Installed snippet library: /Applications/MyEclipse Professional 2014/MyEclipse Professional 2014.app/Contents/Profile/configuration/org.eclipse.osgi/bundles/146/1/.cp/snippets/html/css_snippets.xml
+
+!ENTRY com.genuitec.eclipse.wizards 1 0 2015-06-27 15:56:54.887
+!MESSAGE Installed snippet library: /Applications/MyEclipse Professional 2014/MyEclipse Professional 2014.app/Contents/Profile/configuration/org.eclipse.osgi/bundles/146/1/.cp/snippets/html/forms_lists_snippets.xml
+
+!ENTRY com.genuitec.eclipse.wizards 1 0 2015-06-27 15:56:54.908
+!MESSAGE Installed snippet library: /Applications/MyEclipse Professional 2014/MyEclipse Professional 2014.app/Contents/Profile/configuration/org.eclipse.osgi/bundles/146/1/.cp/snippets/html/html_snippets.xml
+
+!ENTRY com.genuitec.eclipse.wizards 1 0 2015-06-27 15:56:54.922
+!MESSAGE Installed snippet library: /Applications/MyEclipse Professional 2014/MyEclipse Professional 2014.app/Contents/Profile/configuration/org.eclipse.osgi/bundles/146/1/.cp/snippets/html/htmlform_snippets.xml
+
+!ENTRY com.genuitec.eclipse.wizards 1 0 2015-06-27 15:56:54.938
+!MESSAGE Installed snippet library: /Applications/MyEclipse Professional 2014/MyEclipse Professional 2014.app/Contents/Profile/configuration/org.eclipse.osgi/bundles/146/1/.cp/snippets/html/javascript_snippets.xml
+
+!ENTRY com.genuitec.eclipse.wizards 1 0 2015-06-27 15:56:54.958
+!MESSAGE Installed snippet library: /Applications/MyEclipse Professional 2014/MyEclipse Professional 2014.app/Contents/Profile/configuration/org.eclipse.osgi/bundles/146/1/.cp/snippets/jsp/jsf_f_snippets.xml
+
+!ENTRY com.genuitec.eclipse.wizards 1 0 2015-06-27 15:56:54.985
+!MESSAGE Installed snippet library: /Applications/MyEclipse Professional 2014/MyEclipse Professional 2014.app/Contents/Profile/configuration/org.eclipse.osgi/bundles/146/1/.cp/snippets/jsp/jsf_h_snippets.xml
+
+!ENTRY com.genuitec.eclipse.wizards 1 0 2015-06-27 15:56:55.007
+!MESSAGE Installed snippet library: /Applications/MyEclipse Professional 2014/MyEclipse Professional 2014.app/Contents/Profile/configuration/org.eclipse.osgi/bundles/146/1/.cp/snippets/jsp/struts_bean_snippets.xml
+
+!ENTRY com.genuitec.eclipse.wizards 1 0 2015-06-27 15:56:55.044
+!MESSAGE Installed snippet library: /Applications/MyEclipse Professional 2014/MyEclipse Professional 2014.app/Contents/Profile/configuration/org.eclipse.osgi/bundles/146/1/.cp/snippets/jsp/struts_html_snippets.xml
+
+!ENTRY com.genuitec.eclipse.wizards 1 0 2015-06-27 15:56:55.091
+!MESSAGE Installed snippet library: /Applications/MyEclipse Professional 2014/MyEclipse Professional 2014.app/Contents/Profile/configuration/org.eclipse.osgi/bundles/146/1/.cp/snippets/jsp/struts_logic_snippets.xml
+
+!ENTRY com.genuitec.eclipse.wizards 1 0 2015-06-27 15:56:55.122
+!MESSAGE Installed snippet library: /Applications/MyEclipse Professional 2014/MyEclipse Professional 2014.app/Contents/Profile/configuration/org.eclipse.osgi/bundles/146/1/.cp/snippets/jsp/struts_tiles_snippets.xml
+
+!ENTRY org.springsource.ide.eclipse.commons.frameworks.core 0 0 2015-06-27 15:56:57.523
+!MESSAGE Result of converting legacy STS 2.x workspace preferences to 3.x
+!SUBENTRY 1 org.springsource.ide.eclipse.commons.frameworks.core 0 0 2015-06-27 15:56:57.523
+!MESSAGE Converted legacy STS plugin preferences
+!SUBENTRY 1 unknown 0 0 2015-06-27 15:56:57.524
+!MESSAGE OK
+!SUBENTRY 1 org.springsource.ide.eclipse.commons.frameworks.core 0 0 2015-06-27 15:56:57.524
+!MESSAGE Converted legacy Roo plugin state locations
+!SUBENTRY 1 org.springsource.ide.eclipse.commons.frameworks.core 0 0 2015-06-27 15:56:57.524
+!MESSAGE Converted legacy STS plugin state locations
+
+!ENTRY org.eclipse.core.jobs 2 2 2015-06-27 15:57:51.875
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.m2e.core.internal.index.nexus.IndexUpdaterJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2015-06-27 15:57:51.876
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: com.genuitec.eclipse.maven.core.LocalMavenRepositoryImportsJob
