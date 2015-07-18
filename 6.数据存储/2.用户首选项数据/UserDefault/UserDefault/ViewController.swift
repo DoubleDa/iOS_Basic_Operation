@@ -16,9 +16,12 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
         ud = NSUserDefaults.standardUserDefaults()
+        //ud.objectForKey("data")
+//        ud.setBool(value: Bool, forKey: String) 存储值
         if let value: AnyObject = ud.objectForKey("data"){
-            inputTxt.text = value as String
+            inputTxt.text = value as! String
         }else{
             inputTxt.text = "No value"
         }
@@ -30,8 +33,9 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    //保存数据
     @IBAction func SaveTapped(sender: AnyObject) {
-         var ud  = NSUserDefaults.standardUserDefaults()
+
         ud.setObject(inputTxt.text, forKey: "data")
         println("saved")
     }

@@ -21,7 +21,7 @@ class ViewController: UIViewController {
         MySwitch.on = ud.boolForKey("showTips")
         
         if MySwitch.on{
-            UIAlertView(title: "tishi", message: "dsf", delegate: nil, cancelButtonTitle: "haode")
+            UIAlertView(title: "提示", message: "下雨要带雨伞啦啦啦啊啦啦", delegate: nil, cancelButtonTitle: "好的").show()
         }
     }
 
