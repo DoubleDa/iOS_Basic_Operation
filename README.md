@@ -33,4 +33,19 @@
 
     * Swift语言调试技巧
         2课时 8分钟 本课学习调试Swift程序，断点调试。
+        
+* ## 3. iOS用户界面 
+  本阶段主要讲解iOS用户界面相关知识，如基本UI控件，TableView，界面跳转等。(共4课程，103分钟，27733人已经学习)。
 
+  * iOS项目介绍
+    本课介绍iOS项目结构，学会开发简单程序。  
+
+  * iOS用户界面开发基本流程
+    本课通过对UIWebiew，iOS StoryBoard，iOS Assistant editor等iOS UI控件的讲解，学会如何实现
+
+  * iOS列表控件TableView的开发与使用
+    本课时讲解iOS列表及自定义列表，学会使用iOS Table View。
+
+
+  * 使用StoryBoard做iOS UI界面跳转
+    本课时学习iOS UI界面跳转及面板之间传递数据。
