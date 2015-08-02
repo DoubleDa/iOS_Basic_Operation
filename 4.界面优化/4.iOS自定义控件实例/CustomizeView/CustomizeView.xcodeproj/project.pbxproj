@@ -309,6 +309,7 @@
 		7709A7351B5BF17C000A3806 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0630;
 				ORGANIZATIONNAME = "游义男";
 				TargetAttributes = {
@@ -693,6 +694,7 @@
 				7709A75E1B5BF17C000A3806 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7709A75F1B5BF17C000A3806 /* Build configuration list for PBXNativeTarget "CustomizeViewTests" */ = {
 			isa = XCConfigurationList;
@@ -701,6 +703,7 @@
 				7709A7611B5BF17C000A3806 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7709A7801B5BF20F000A3806 /* Build configuration list for PBXNativeTarget "MyCustomViews" */ = {
 			isa = XCConfigurationList;
@@ -709,6 +712,7 @@
 				7709A7821B5BF20F000A3806 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7709A7841B5BF20F000A3806 /* Build configuration list for PBXNativeTarget "MyCustomViewsTests" */ = {
 			isa = XCConfigurationList;
@@ -717,6 +721,7 @@
 				7709A7861B5BF20F000A3806 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
