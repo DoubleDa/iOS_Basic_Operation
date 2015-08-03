@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="ufC-wZ-h7g">
+            <objects>
+                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModule="UISegmentController" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
+                        <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" segmentControlStyle="plain" selectedSegmentIndex="3" translatesAutoresizingMaskIntoConstraints="NO" id="mxo-gh-dXL">
+                                <rect key="frame" x="32" y="286" width="536" height="29"/>
+                                <segments>
+                                    <segment title="Black"/>
+                                    <segment title="White"/>
+                                    <segment title="Green"/>
+                                    <segment title="Red"/>
+                                </segments>
+                                <connections>
+                                    <action selector="ValueChanged:" destination="vXZ-lx-hvc" eventType="valueChanged" id="fRT-61-uYW"/>
+                                </connections>
+                            </segmentedControl>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="K31-C5-9GD">
+                                <rect key="frame" x="32" y="339" width="97" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="97" id="v1s-cs-VTv"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qo9-fY-XRa">
+                                <rect key="frame" x="166" y="338" width="30" height="30"/>
+                                <state key="normal" title="Add">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="TappedAddBtn:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="4hC-aQ-F6p"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VkS-Qo-IO0">
+                                <rect key="frame" x="249" y="339" width="57" height="30"/>
+                                <state key="normal" title="Remove">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="TappedRemoveBtn:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="sAw-ml-5g9"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="mxo-gh-dXL" secondAttribute="centerX" id="5Aw-Zh-YKI"/>
+                            <constraint firstItem="VkS-Qo-IO0" firstAttribute="top" secondItem="K31-C5-9GD" secondAttribute="top" id="EaP-zz-cbk"/>
+                            <constraint firstItem="K31-C5-9GD" firstAttribute="leading" secondItem="mxo-gh-dXL" secondAttribute="leading" id="FtB-Xg-QB4"/>
+                            <constraint firstItem="mxo-gh-dXL" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="16" id="Hns-yU-p9D"/>
+                            <constraint firstItem="VkS-Qo-IO0" firstAttribute="leading" secondItem="Qo9-fY-XRa" secondAttribute="trailing" constant="53" id="Knu-48-zZU"/>
+                            <constraint firstItem="K31-C5-9GD" firstAttribute="baseline" secondItem="Qo9-fY-XRa" secondAttribute="baseline" id="UIa-9c-UNu"/>
+                            <constraint firstAttribute="centerY" secondItem="mxo-gh-dXL" secondAttribute="centerY" id="b0k-HP-GDE"/>
+                            <constraint firstItem="Qo9-fY-XRa" firstAttribute="top" secondItem="mxo-gh-dXL" secondAttribute="bottom" constant="24" id="fRB-mb-iFc"/>
+                            <constraint firstItem="Qo9-fY-XRa" firstAttribute="leading" secondItem="K31-C5-9GD" secondAttribute="trailing" constant="37" id="hhA-bN-CUI"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="mxo-gh-dXL" secondAttribute="trailing" constant="16" id="pBf-ci-B5q"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="TextField1" destination="K31-C5-9GD" id="y4h-cv-f53"/>
+                        <outlet property="segmentedControl" destination="mxo-gh-dXL" id="oHk-Zx-d6l"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-188" y="379"/>
+        </scene>
+    </scenes>
+</document>
