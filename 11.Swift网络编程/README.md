@@ -20,8 +20,8 @@
 	3. 表现形式(html,xml,json)
 
 * eg Alamofile
-	1.发送请求(https://api.500px.com/v1/photos) Consumer Key :2nLJOm0Lv33m7swnnDM5cbWjpJknPYmL1y9quhhO
-	2.在返回的响应(Response)中处理数据
+	- 发送请求(https://api.500px.com/v1/photos) Consumer Key :2nLJOm0Lv33m7swnnDM5cbWjpJknPYmL1y9quhhO
+	- 在返回的响应(Response)中处理数据
 		- 集合(NSSet NSOrderedSet NSMutableOrderedSet) (在闭包中使用参数加self)
 		- 取照片集合的每张图片对象(objectAtIndex) Alamofire执行请求获取相应
 		- 代码复用 enum 构造不同的URL请求 URLRequestConvertible(Alamofire)
@@ -32,8 +32,8 @@
 			- 高优先级解析照片组
 			- 对UI的操作必须在主队列
 			- 定制Seriallzer
-	3.Response Json
-	4.序列化(serialization)为JSON对象
+	- Response Json
+	- 序列化(serialization)为JSON对象
 		 - 定制Seriallzer (completionHandler) request responseImage 
 		 - Dequeue 和 Reuse 不在屏幕上显示的cell即被收回
 		 - 当用户滑动的时候，取回的数据已经不在需要了
