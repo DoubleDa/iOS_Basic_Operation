@@ -1,0 +1,162 @@
+#1:函数类型:
+	* 常量参数
+	```Swift
+		func SayHello(value:String,value2:String) ->(){
+			var str = value.append(value2)
+			print(str)
+		}
+		SayHello("hello","Swift")
+	```
+
+	* 变量参数
+	```Swift
+		func SayHello1(var value1:String) ->(){
+			value1 = "AAAA"
+			print(value1)
+		}
+		SayHello("qqq")
+		// AAAA
+	```
+	* 参数默认值
+	```Swift
+		func SayHello2(value2:String = "AAA"){
+			print(value)
+		}
+		SayHello()
+		// AAA
+	```
+
+	* 可变参数(value3 可以有N个参数)
+	```Swift
+		func SayHello3(value3:Double...){
+			for temp in value3{
+				print("temp=\(temp)")
+			}
+		}
+		SayHello3(1.1,2.2,3.3)
+		//temp=1.1
+		//temp=2.2
+		//temp=3.3
+	```
+
+	* 外部参数名
+	```Swift(1：函数中的第一个不需要参数说明  2:参数说明+参数名:类型,构成一个参数)
+		func SayHello4(value4:String,explain epValue:String){
+			String str = value + epValue
+			print(str)
+		}
+		SayHello("Hello",explain:"Swift")
+	```
+
+	* 输入输出参数
+	//值传递好比是你把文件复制一份，通过网络传给他，然后他可以在他本机上对文件做任何的修改，修改会保存下来，但是你机器上的文件不会发生任何的变化。即形参与实参是两个不同的变量，各自占用不同的存储单元。
+	//地址传递好比是你把文件在网络上的地址告诉他人，他人通过网络访问你机器上的文件，他可以对文件进行修改并保存，此时，文件的内容就会发生变化。即形参与实参是相同的变量，占用同一段内存空间。
+	```Swift
+		func SayHello5(inout value5:String){
+			value = "Hello Swift"
+		}
+		var str = "hello"
+		SayHello5(&str) //此时传递字符串的地址
+		print(str)
+		// Hello Swift
+	```
+
+	* 函数返回值 -- 元组
+	```Swift
+		func SayHello6(value6:String,nums tpValue:"String") ->(String,String){
+			return (value6,tpValue)
+		}
+		var (A,B) = SayHeollo6("Hello",nums:"Swift")
+		print("A=\(A),B=\(B)")
+		//A=Hello,B=Swift
+	```
+
+	* 函数返回值 --函数
+	```Swifft
+		//自加函数
+		func Add(num:Int) ->Int{
+			return num+1
+		}
+		//自减函数
+		func zj(num:Int)->Int{
+			return num-1
+		}
+		//定义返回函数类型
+		func SayHello7(num:Bool) ->(Int)->Int{
+			return num?Add:zj
+		}
+		var num = 10
+		//定义一个参数是 (Int)->(Int) 类型
+		var fun:(Int) ->Int = SayHello7(num>5);
+		num = fun(num)
+		print("num=\(num)")
+	```
+
+#2:闭包
+* 闭包就是函数的简写方法 *
+
+	* 函数类型 
+	```Swift
+		func Say(num:Int)->Bool{
+			return num >10
+		}
+		var By:(Int)->Bool = Say
+		var b = By(12)
+		print(b)
+		//true
+	```
+
+	* 闭包格式
+	```Swift
+		//define function
+		func GetList(arr:Int[],pre:(Int)->Bool) -> Int[]){
+			var tempArr = Int[]()
+			for temp in arr[](){
+				for temp in arr{
+					if pre(temp){
+						tempArr += temp;
+					}
+				}
+				return tempArr;
+			}
+			// invoke GetList
+			let arr = GetList([1,2,3,4],{(s:Int) in return s>2})
+			print(arr)
+			//[3,4]
+		}
+	```
+
+	* 闭包简写的方法
+	//1；第一种简写 ：省略 参数类型和括号
+	//2:第二种简写 : 省略 参数类型和括号，return关键字
+	//3:第三种简写 ： 参数名称缩写 (用$0代表第一个参数，$1代表第二个参数)
+	```Swift
+		//第一种简写 ：省略 参数类型和括号
+		var arr1 = GetList((1,2,3,4,5),{s Void in return s>2})
+		//2:第二种简写 : 省略 参数类型和括号，return关键字
+		var arr2 = GetList((1,2,3,4,5),{s Void in s>2})
+		//3:第三种简写 ： 参数名称缩写 (用$0代表第一个参数，$1代表第二个参数)
+		var arr3 = GetList((1,2,3,4,5),{$0>2})
+		print(arr1)
+	```
+	* 尾随闭包
+	*尾随闭包是一个书写在函数括号之后的闭包表达式，函数支持将其作为最后一个参数调用*
+	```Swift
+		func Fuction(closure:() ->()){
+			print("无参数,无返回值的函式类型")
+		}
+		Fuction({})
+		Fuction(){}
+	```
+
+
+
+
+
+
+
+
+
+
+
+

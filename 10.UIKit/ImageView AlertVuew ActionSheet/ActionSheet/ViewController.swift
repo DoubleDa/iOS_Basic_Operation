@@ -38,6 +38,7 @@ class ViewController: UIViewController,UIActionSheetDelegate,UIAlertViewDelegate
     func actionSheet(actionSheet: UIActionSheet, clickedButtonAtIndex buttonIndex: Int) {
         UIAlertView(title: "你点击了", message: "你点击了Button: \(buttonIndex)", delegate: nil, cancelButtonTitle: "Cancel").show()
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
