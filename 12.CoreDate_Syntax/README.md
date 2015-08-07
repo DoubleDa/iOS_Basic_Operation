@@ -14,4 +14,8 @@
 		 var alertView = UIAlertView(title:"Title",message:"Message",delegate:self,cancelButton:"Cancel",otherButtonTitle:"1","2","3")
 		 alertView.alertViewStyle = UIAlertViewStyle.Login
 		 alertView.show()
+
+		 func alertView(alertView:UIAlertView,clickedButtonAtIndex buttonIndex:Int){
+		 	UIAlertView(title:"Title",message:"Message",delegate:nil,cancelButtonTitle:"OK",otherButtonTitles:"1","2").show()
+		 }
 		```
