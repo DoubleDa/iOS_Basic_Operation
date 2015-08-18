@@ -102,4 +102,40 @@ func begin(){
 	}while i <= 10
 
 ```
+## OptionSet:
+```Swift
+import Foundation
 
+struct Inputs:OptionSetType     {
+    let rawValue:Int
+    static let user = Inputs(rawValue: 1 << 0)
+    static let pass = Inputs(rawValue: 1 << 1)
+    static let mail = Inputs(rawValue: 1 << 2)
+    
+    
+}
+
+// judge whether input all
+extension Inputs{
+    func isAllOK() -> Bool{
+//        return self == [.user, .pass, .mail]
+//        return self.rawValue == 0b111
+        let count = 3
+        // serach items
+        var found = 0
+        
+        for time in 0..<count{
+            if self.contains(Inputs(rawValue:1 << time)){
+                found++
+            }
+        }
+        // 是否全部找到
+        return found == count
+        
+    }
+}
+
+let possibleInputs:Inputs = [.user, .pass, .mail]
+possibleInputs.isAllOK()
+```
+将if条件语句提前，并且将if改为where `for time in 0..<count where contains(Inputs(rawValue:1 << time)){//code}`

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		773C8D481B7B4C2C00DF5356 /* collectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773C8D471B7B4C2C00DF5356 /* collectionViewFlowLayout.swift */; };
 		779AE6671B744C5B00E2C1C1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779AE6661B744C5B00E2C1C1 /* AppDelegate.swift */; };
 		779AE66C1B744C5B00E2C1C1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 779AE66A1B744C5B00E2C1C1 /* Main.storyboard */; };
 		779AE66E1B744C5B00E2C1C1 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 779AE66D1B744C5B00E2C1C1 /* Images.xcassets */; };
@@ -27,6 +28,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		773C8D471B7B4C2C00DF5356 /* collectionViewFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = collectionViewFlowLayout.swift; sourceTree = "<group>"; };
 		779AE6611B744C5B00E2C1C1 /* UICollectionViewDelegateFlowLayout.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UICollectionViewDelegateFlowLayout.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		779AE6651B744C5B00E2C1C1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		779AE6661B744C5B00E2C1C1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -80,6 +82,7 @@
 			isa = PBXGroup;
 			children = (
 				779AE6661B744C5B00E2C1C1 /* AppDelegate.swift */,
+				773C8D471B7B4C2C00DF5356 /* collectionViewFlowLayout.swift */,
 				77DE6ECB1B744CBD004A1B9B /* CollectionViewController.swift */,
 				77BCF4A61B74A46E006619CA /* CollectionViewCell.swift */,
 				779AE66A1B744C5B00E2C1C1 /* Main.storyboard */,
@@ -159,6 +162,7 @@
 		779AE6591B744C5B00E2C1C1 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0630;
 				ORGANIZATIONNAME = "游义男";
 				TargetAttributes = {
@@ -217,6 +221,7 @@
 			files = (
 				77DE6ECC1B744CBD004A1B9B /* CollectionViewController.swift in Sources */,
 				779AE6671B744C5B00E2C1C1 /* AppDelegate.swift in Sources */,
+				773C8D481B7B4C2C00DF5356 /* collectionViewFlowLayout.swift in Sources */,
 				77BCF4A71B74A46E006619CA /* CollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

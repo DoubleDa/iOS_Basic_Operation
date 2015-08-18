@@ -55,6 +55,7 @@ class ViewController: UIViewController,UITableViewDataSource{
         tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "Cell")
     }
     
+    // Fetching from Core Data
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate

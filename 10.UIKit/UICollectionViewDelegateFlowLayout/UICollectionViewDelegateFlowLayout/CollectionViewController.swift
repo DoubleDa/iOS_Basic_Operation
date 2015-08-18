@@ -22,8 +22,8 @@ class CollectionViewController: UICollectionViewController,UICollectionViewDeleg
 
         // Register cell classes
         self.collectionView!.registerClass(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
-        self.title = "Video"
-        self.view.backgroundColor = UIColor.whiteColor()
+//        self.title = "Video"
+//        self.view.backgroundColor = UIColor.whiteColor()
 
         // Do any additional setup after loading the view.
     }

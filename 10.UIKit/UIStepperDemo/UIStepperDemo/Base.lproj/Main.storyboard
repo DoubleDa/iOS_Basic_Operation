@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="ufC-wZ-h7g">
+            <objects>
+                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModule="UIStepperDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
+                        <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="10" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="CcA-9e-nzN">
+                                <rect key="frame" x="253" y="48" width="94" height="29"/>
+                                <connections>
+                                    <action selector="TappedValueChangedStepper:" destination="vXZ-lx-hvc" eventType="valueChanged" id="BIc-p2-Zqk"/>
+                                </connections>
+                            </stepper>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Od0-KV-wgl">
+                                <rect key="frame" x="252" y="116" width="97" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="97" id="k42-MU-e6D"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Od0-KV-wgl" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="Gzd-H3-KTT"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="Od0-KV-wgl" secondAttribute="bottom" constant="454" id="TrG-ae-JdH"/>
+                            <constraint firstItem="Od0-KV-wgl" firstAttribute="top" secondItem="CcA-9e-nzN" secondAttribute="bottom" constant="39" id="h8l-8p-goz"/>
+                            <constraint firstItem="Od0-KV-wgl" firstAttribute="centerX" secondItem="CcA-9e-nzN" secondAttribute="centerX" id="ta0-t9-UZm"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="stepper1" destination="CcA-9e-nzN" id="r3y-XR-6jb"/>
+                        <outlet property="textField" destination="Od0-KV-wgl" id="TmQ-fg-6qm"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+    </scenes>
+</document>
