@@ -13,6 +13,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
 
     var tableView:UITableView!
     var dataArray = [String]()
+    var head:XHPathCover!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,8 +34,19 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
             self.dataArray.append("\(i)")
         }
         
-        self.tableView.addLegendHeaderWithRefreshingTarget(self, refreshingAction: "headerRefresh")
+       // self.tableView.addLegendHeaderWithRefreshingTarget(self, refreshingAction: "headerRefresh")
         self.tableView.addGifFooterWithRefreshingTarget(self, refreshingAction: "footerRefresh")
+    
+        self.head = XHPathCover(frame: CGRectMake(0, 0, self.view.frame.width, 250))
+        self.head.setBackgroundImage(UIImage(named: "cute_girl.jpg"))
+        self.head.isZoomingEffect = true // 下拉背景放大 模糊
+        self.head.setInfo(NSDictionary(objectsAndKeys: "YouYinan",XHUserNameKey,"iOSDevelper",XHBirthdayKey ) as [NSObject : AnyObject])
+        self.head.avatarButton.layer.cornerRadius = 33
+        self.head.avatarButton.layer.masksToBounds = true
+        self.head.handleRefreshEvent = {
+            self.headerRefresh()
+        }
+        self.tableView.tableHeaderView = head
         
     }
     
@@ -47,8 +59,9 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
             for(i=0;i<10;i++){
                 self.dataArray.append("\(i)")
             }
-            self.tableView.header.endRefreshing()
+          //  self.tableView.header.endRefreshing()
             self.tableView.reloadData()
+            self.head.stopRefresh()
             ProgressHUD.showSuccess("完成～～～")
         })
     }
@@ -71,6 +84,8 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(time * Double(NSEC_PER_SEC))), dispatch_get_main_queue(), closure)
     }
     
+    // MARK :UITableViewDataSource
+    
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1;
     }
@@ -78,6 +93,8 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return dataArray.count
     }
+
+    // MARK : UITableViewDelegate
     
     func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return "Header"
@@ -87,16 +104,33 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         return "Footer"
     }
     
-
-    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! UITableViewCell
         
         cell.textLabel?.text = self.dataArray[indexPath.row]
-        
+        for view in cell.contentView.subviews{
+            view.removeFromSuperview()
+        }
+        var image = UIImageView(frame: CGRect(x: 10, y: 10, width: 60, height: 60))
+        image.layer.cornerRadius = 30
+        image.layer.masksToBounds = true
         return cell
     }
     
+    
+    // MARK : UIScrollView
+    func scrollViewDidScroll(scrollView: UIScrollView) {
+        head.scrollViewDidScroll(scrollView)
+    }
+    func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
+        head.scrollViewDidEndDecelerating(scrollView)
+    }
+    func scrollViewDidEndDragging(scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        head.scrollViewDidEndDragging(scrollView, willDecelerate: decelerate)
+    }
+    func scrollViewWillBeginDragging(scrollView: UIScrollView) {
+        head.scrollViewWillBeginDragging(scrollView)
+    }
     
     
     

@@ -4,3 +4,5 @@
 
 #import "MJRefresh.h"
 #import "ProgressHUD.h"
+#import "XHPathCover.h"
+#import "UIImageView+WebCache.h"
