@@ -15,10 +15,28 @@
 	- showSuccess()
 	- showError()
 	- dismiss()
-
 - PathCover(个人主页)
 - SDWebImage(异步加载图片)
 	- 第三方库导入 
 	- 异步加载图片
 	- 自动本地缓存
 	- 清除缓存
+- Extension(class,struct,enum添加新功能，没有获取源代码的情况下扩展类型能力(逆向建模)) 类似Objective-C中的categories,但是Swift的扩张没有名字
+	- 添加实例方法，类型方法
+	- 添加计算型实例属性，计算型类型属性
+	- 添加新的构造器
+	- 添加新的小标
+```Swift
+extension class/struct/enmu:<SomeProtocol>,<AnotherProtocol>{
+	// 计算型实例属性
+
+
+}
+```
+
+> Note: 扩展可以添加新的计算属性，但是不可以添加存储属性，也不可以向已有属性添加属性观测器(property observers)
+
+- 自定义类型: 制作状态栏 实现画线 (Graphics context -> 画布 view -> 画框)
+	- CGContextRef
+	- CGPath
+	- UIBezierPath
