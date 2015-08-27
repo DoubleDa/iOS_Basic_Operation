@@ -48,6 +48,15 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         }
         self.tableView.tableHeaderView = head
         
+        
+        head.sayHello()
+        tableView.sayHello()
+        
+        // clear Cache
+        SDImageCache.sharedImageCache().clearDisk()
+        SDImageCache.sharedImageCache().clearMemory()
+        
+        
     }
     
     // 下拉刷新 覆盖
@@ -104,16 +113,30 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         return "Footer"
     }
     
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 80
+    }
+    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! UITableViewCell
         
-        cell.textLabel?.text = self.dataArray[indexPath.row]
+//        cell.textLabel?.text = self.dataArray[indexPath.row]
+        
         for view in cell.contentView.subviews{
             view.removeFromSuperview()
         }
         var image = UIImageView(frame: CGRect(x: 10, y: 10, width: 60, height: 60))
         image.layer.cornerRadius = 30
         image.layer.masksToBounds = true
+        
+        var url:NSURL = NSURL(string: "http://hbimg2.b0.upaiyun.com/img/error_page/c5f8a098ebb671271ccaa46d929866358591e591506d_sq236")!
+        image.sd_setImageWithURL(url, placeholderImage: UIImage(named: "cute_girl.jpg"))
+        cell.contentView.addSubview(image)
+        
+        var label = UILabel(frame: CGRect(x: 80, y: 30, width: 100, height: 20))
+        label.text = "\(indexPath.row)"
+        cell.contentView.addSubview(label)
+        
         return cell
     }
     
