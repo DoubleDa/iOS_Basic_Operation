@@ -42,6 +42,7 @@
 		7787CD581B8E1869005DB33F /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 7787CD481B8E1869005DB33F /* UIView+WebCacheOperation.m */; };
 		7787CD5A1B8EAA16005DB33F /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7787CD591B8EAA16005DB33F /* UIViewExtension.swift */; };
 		7787CD5C1B8EAC6D005DB33F /* LineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7787CD5B1B8EAC6D005DB33F /* LineView.swift */; };
+		77AA5CA91B909C420026D0EE /* bgImage.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 77AA5CA81B909C420026D0EE /* bgImage.jpg */; };
 		77D6D5A41B8D9A6400D52F3F /* MJRefresh.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 77D6D58C1B8D9A6300D52F3F /* MJRefresh.bundle */; };
 		77D6D5A51B8D9A6400D52F3F /* MJRefreshComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 77D6D58F1B8D9A6400D52F3F /* MJRefreshComponent.m */; };
 		77D6D5A61B8D9A6400D52F3F /* MJRefreshConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 77D6D5911B8D9A6400D52F3F /* MJRefreshConst.m */; };
@@ -129,6 +130,7 @@
 		7787CD591B8EAA16005DB33F /* UIViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		7787CD5B1B8EAC6D005DB33F /* LineView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineView.swift; sourceTree = "<group>"; };
 		7791EBEB1B8D8FDA00CD911B /* Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
+		77AA5CA81B909C420026D0EE /* bgImage.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bgImage.jpg; sourceTree = "<group>"; };
 		77D6D58C1B8D9A6300D52F3F /* MJRefresh.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MJRefresh.bundle; sourceTree = "<group>"; };
 		77D6D58D1B8D9A6400D52F3F /* MJRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefresh.h; sourceTree = "<group>"; };
 		77D6D58E1B8D9A6400D52F3F /* MJRefreshComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshComponent.h; sourceTree = "<group>"; };
@@ -197,6 +199,7 @@
 		77164C081B8D5E3E008D0BDC /* 02.Test */ = {
 			isa = PBXGroup;
 			children = (
+				77AA5CA81B909C420026D0EE /* bgImage.jpg */,
 				77387A3B1B8DAF8000EF16A9 /* cute_girl.jpg */,
 				77387A391B8DAF7C00EF16A9 /* BG.png */,
 				7787CD271B8E1869005DB33F /* SDWebImage */,
@@ -431,6 +434,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				77AA5CA91B909C420026D0EE /* bgImage.jpg in Resources */,
 				77387A331B8DAF4900EF16A9 /* meicon.png in Resources */,
 				77164C141B8D5E3E008D0BDC /* Main.storyboard in Resources */,
 				77164C191B8D5E3E008D0BDC /* LaunchScreen.xib in Resources */,

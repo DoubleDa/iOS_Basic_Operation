@@ -38,7 +38,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         self.tableView.addGifFooterWithRefreshingTarget(self, refreshingAction: "footerRefresh")
     
         self.head = XHPathCover(frame: CGRectMake(0, 0, self.view.frame.width, 250))
-        self.head.setBackgroundImage(UIImage(named: "cute_girl.jpg"))
+        self.head.setBackgroundImage(UIImage(named: "bgImage.jpg"))
         self.head.isZoomingEffect = true // 下拉背景放大 模糊
         self.head.setInfo(NSDictionary(objectsAndKeys: "YouYinan",XHUserNameKey,"iOSDevelper",XHBirthdayKey ) as [NSObject : AnyObject])
         self.head.avatarButton.layer.cornerRadius = 33
@@ -46,7 +46,15 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         self.head.handleRefreshEvent = {
             self.headerRefresh()
         }
-        self.tableView.tableHeaderView = head
+//        self.tableView.tableHeaderView = head
+        
+        var Line = LineView(frame: CGRect(x: 0, y: 250, width: self.view.frame.width, height: 60))
+        var HeadView = UIView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 310))
+        
+        HeadView.addSubview(Line)
+        HeadView.addSubview(head)
+        
+        tableView.tableHeaderView = HeadView
         
         
         head.sayHello()
@@ -129,7 +137,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         image.layer.cornerRadius = 30
         image.layer.masksToBounds = true
         
-        var url:NSURL = NSURL(string: "http://hbimg2.b0.upaiyun.com/img/error_page/c5f8a098ebb671271ccaa46d929866358591e591506d_sq236")!
+        var url:NSURL = NSURL(string: "http://s1.dwstatic.com/group1/M00/AE/B4/c216a47354416d579df9f438f8c000ca.jpg")!
         image.sd_setImageWithURL(url, placeholderImage: UIImage(named: "cute_girl.jpg"))
         cell.contentView.addSubview(image)
         

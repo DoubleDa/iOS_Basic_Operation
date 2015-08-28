@@ -76,27 +76,41 @@ extension Int {
 // 嵌套类型
 // 向已有的class struct enum z中添加新的嵌套类型
 extension Character{
-     // 新的嵌套枚举
+    // 新的嵌套枚举
     enum Kind{
         case Vowel
         case Consonant
         case Other
     }
-   // 计算实例属性
+    // 计算实例属性
     var kind:Kind{
         switch String(self).lowercaseString{
-            case "a","e","i","o","u":
-                return .Vowel
-            case "b", "c", "d", "f", "g", "h", "j", "k", "l", "m","n", "p", "q", "r", "s", "t", "v", "w", "x", "y", "z":
-                return .Consonant
+        case "a","e","i","o","u":
+            return .Vowel
+        case "b", "c", "d", "f", "g", "h", "j", "k", "l", "m","n", "p", "q", "r", "s", "t", "v", "w", "x", "y", "z":
+            return .Consonant
         default:
             return .Other
             
         }
     }
 }
-
-
+// 联合使用：
+func printLetterKinds(word:String){
+//    word.characters.count
+    print("\(word) is made up of the following kinds of letters")
+    for character in word.characters{
+        switch character.kind{
+        case .Vowel:
+            print("Vowel")
+        case .Consonant:
+            print("consonant")
+        case .Other:
+            print("other")
+        }
+    }
+}
+printLetterKinds("Hello")
 
 
 

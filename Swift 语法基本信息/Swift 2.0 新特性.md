@@ -1,4 +1,5 @@
 #Swift 2.0 新特性
+`var a = "SDsadad";for string in a.characters{} `
 ##1.错误处理
 throws  throw 
 do try catch 
