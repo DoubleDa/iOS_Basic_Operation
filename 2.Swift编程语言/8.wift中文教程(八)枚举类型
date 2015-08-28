@@ -1,0 +1,78 @@
+#  wift中文教程（八） 枚举类型
+
+> 枚举定义了一个常用的具有相关性的一组数据。
+C语言中的枚举指定相关名称为一组整数值。Swift中不必为每一个枚举成员提供一个值(如果有值，可以是Stirng,Char,Int,Float...)
+枚举成员可以指定任何类型，每个成员都可以存储的不同的相关值。
+在Swift中枚举类型是最重要的类型。它采用了很多以前只有类才具有的特性，如计算性能，以提供有关枚举的当前值的更多信息，方法和实例方法提供的功能相关的枚举表示的值传统上支持的许多功能。枚举也可以定义初始化，以提供一个初始成员值;可以在原有基础上扩展扩大它们的功能;并使用协议来提供标准功能
+
+***
+
+1. 枚举语法:
+```Swift
+enum Directions{
+	case North
+	case South,West,East
+}
+var head = Directions.West
+// 参数类型已知，是代码具有更好的可读性
+head = .East
+```
+2. 匹配 枚举值 与switch()
+```Swift
+head = .North
+switch head{
+case .North:
+	print(head.hashValue) // 0
+default:
+	print("others") // head.hashValue = 1
+}
+```
+3. 关联值
+```Swift
+enum Barcode{
+	case UPCA(Int,Int,Int)
+	case QRCode(String)
+}
+var productBarcode = Barcode.UPCA(8, 85909_51226, 3)
+productBarcode = .QRCode("ABCDEFGHIJKLMNOP")
+
+switch productBarcode{
+case .UPCA(var numberSystem,var identifier, var check)
+	print("\(numberSystem),\(identifier),\(check)")	
+case let .QRCode(productCode):
+	print(productCode)
+}
+```
+4. 原始值：
+```
+enum ASCIICharacter: Character{
+	case Tab =  "\t"
+	case LineFeed = "\n"
+	case CarriageReturn = "\r"
+}
+enum Planet:Int{
+	// 原始值自增长
+	case Mercury = 1, Venus, Earth, Mars, Jupiter, Saturn, Uranus, Neptune
+}
+let earthsOrder = Planet.Earth.toRaw() // 获取枚举成员 Earth 的值
+let possiblePlanet = Plannet.fromRaw(7) // 寻找具有特定原始值的枚举成员 可选类型？
+``` 
+```Swift
+var array1:[String] = ["a","b","c","d"]
+for (index,value) in EnumerateSequence(array1){
+    print("index:\(index),value:\(value)")
+}
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
