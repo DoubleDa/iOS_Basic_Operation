@@ -6,3 +6,5 @@
 #import "ProgressHUD.h"
 #import "XHPathCover.h"
 #import "UIImageView+WebCache.h"
+#import "HZPhotoBrowser.h"
+#import "XActionSheet.h"

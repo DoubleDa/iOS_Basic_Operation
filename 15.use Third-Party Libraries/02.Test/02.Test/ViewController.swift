@@ -9,7 +9,7 @@
 import UIKit
 
 
-class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
+class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,HZPhotoBrowserDelegate,XActionSheetDelegate{
 
     var tableView:UITableView!
     var dataArray = [String]()
@@ -38,11 +38,13 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         self.tableView.addGifFooterWithRefreshingTarget(self, refreshingAction: "footerRefresh")
     
         self.head = XHPathCover(frame: CGRectMake(0, 0, self.view.frame.width, 250))
-        self.head.setBackgroundImage(UIImage(named: "bgImage.jpg"))
+        self.head.setBackgroundImage(UIImage(named: "BG.png"))
+        self.head.setAvatarImage(UIImage(named: "bgImage.jpg"))
         self.head.isZoomingEffect = true // 下拉背景放大 模糊
         self.head.setInfo(NSDictionary(objectsAndKeys: "YouYinan",XHUserNameKey,"iOSDevelper",XHBirthdayKey ) as [NSObject : AnyObject])
         self.head.avatarButton.layer.cornerRadius = 33
         self.head.avatarButton.layer.masksToBounds = true
+        self.head.avatarButton.addTarget(self, action: "PhotoBrowser", forControlEvents: .TouchUpInside)
         self.head.handleRefreshEvent = {
             self.headerRefresh()
         }
@@ -67,6 +69,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         
     }
     
+    // MARK : Selector
     // 下拉刷新 覆盖
     func headerRefresh(){
         ProgressHUD.show("亲爱的，别急～～", interaction: true)
@@ -82,7 +85,6 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
             ProgressHUD.showSuccess("完成～～～")
         })
     }
-    
     // 上拉加载 追加后面
     func footerRefresh(){
         ProgressHUD.show("上拉加载～～")
@@ -96,12 +98,45 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
             ProgressHUD.showSuccess("准备好了～～")
         })
     }
-    
+    func PhotoBrowser(){
+        var action = XActionSheet()
+        action.delegate = self
+        action.addCancelButton("取消")
+        action.addButtonwithTitle("拍照")
+        action.addButtonwithTitle("相册")
+        action.addButtonwithTitle("查看高清大图")
+        self.presentViewController(action, animated: true) { () -> Void in
+            
+        }
+    }
     func delay(time:Double,closure:() ->()){
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(time * Double(NSEC_PER_SEC))), dispatch_get_main_queue(), closure)
     }
     
-    // MARK :UITableViewDataSource
+    // MARK : XActionSheetDelegate
+    func buttonClick(index: Int) {
+        println("\(index)")
+        if index == 2 {
+                    var browserVC = HZPhotoBrowser()
+                    browserVC.sourceImagesContainerView = head.avatarButton
+                    browserVC.imageCount = 1 // 可以显示多张 左滑，右滑
+                    browserVC.currentImageIndex = 0
+                    browserVC.delegate = self
+                    browserVC.show()
+        }
+    }
+    
+    // MARK : HZPhotoBrowserDelegate
+    func photoBrowser(browser: HZPhotoBrowser!, placeholderImageForIndex index: Int) -> UIImage! {
+        return head.avatarButton.currentImage
+    }
+    func photoBrowser(browser: HZPhotoBrowser!, highQualityImageURLForIndex index: Int) -> NSURL! {
+        var url = NSURL(string: "http://g.hiphotos.baidu.com/zhidao/pic/item/77c6a7efce1b9d167b7caa51f0deb48f8c546442.jpg")
+        return url
+    }
+    
+    
+    // MARK : UITableViewDataSource
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1;
