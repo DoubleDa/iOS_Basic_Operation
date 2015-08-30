@@ -9,7 +9,7 @@
 import UIKit
 
 
-class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,HZPhotoBrowserDelegate,XActionSheetDelegate{
+class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,HZPhotoBrowserDelegate, YNActionSheetDelegate{
 
     var tableView:UITableView!
     var dataArray = [String]()
@@ -99,12 +99,21 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         })
     }
     func PhotoBrowser(){
-        var action = XActionSheet()
+//        var action = XActionSheet()
+//        action.delegate = self
+//        action.addCancelButton("取消")
+//        action.addButtonwithTitle("拍照")
+//        action.addButtonwithTitle("相册")
+//        action.addButtonwithTitle("查看高清大图")
+//        self.presentViewController(action, animated: true) { () -> Void in
+//            
+//        }
+        var action = YNActionSheet()
         action.delegate = self
-        action.addCancelButton("取消")
-        action.addButtonwithTitle("拍照")
-        action.addButtonwithTitle("相册")
-        action.addButtonwithTitle("查看高清大图")
+        action.addCancelButtonWithTitle("取消")
+        action.addButtonWithTitle("拍照")
+        action.addButtonWithTitle("相册")
+        action.addButtonWithTitle("查看高清大图")
         self.presentViewController(action, animated: true) { () -> Void in
             
         }
@@ -113,7 +122,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(time * Double(NSEC_PER_SEC))), dispatch_get_main_queue(), closure)
     }
     
-    // MARK : XActionSheetDelegate
+    // MARK : XActionSheetDelegate/ YNActionSheetDelegate
     func buttonClick(index: Int) {
         println("\(index)")
         if index == 2 {
