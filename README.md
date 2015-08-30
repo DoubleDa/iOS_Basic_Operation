@@ -1,6 +1,6 @@
 
 #[根据极客学院iOS教程写的视频写的代码](http://www.jikexueyuan.com/path/ios/)
-**前三章没有代码主要是介绍，后面的都有代码链接**
+**一、三章没有代码主要是介绍，后面的都有代码链接**
 ***
 * ## 1. 环境准备 
 开发前所需环境、相关软件的安装及使用详解。
@@ -133,3 +133,29 @@ iOS界面绘图API、控件等知识。(共6课程，181分钟)。
 
 * [iOS-Swift、Objective-C、C++混合编程](9.混合编程/2.iOS-Swift、Objective-C、C++混合编程)
 本课讲解使用Swift、Objective-C、C++混合编程开发iOS应用。
+
+
+* ## 10. UIKit
+学习使用UIKit库中的各种控件
+
+* [ImageView AlertVuew ActionSheet](10.UIKit/ImageView AlertVuew ActionSheet)
+
+* [UICollectionViewDelegateFlowLayout](10.UIKit/UICollectionViewDelegateFlowLayout)
+
+
+* ## [11.Swift网络编程](11.Swift网络编程/README.md)
+
+
+* ## [12.CoreDate_Syntax](12.CoreDate_Syntax/README.md)
+
+
+* ## [13.iOS系统机制](13.iOS系统机制/README.md)
+
+
+* ## [14.面试题目详解](14.面试题目详解/README.md)
+
+
+* ## [15.use Third-Party Libraries](15.use Third-Party Libraries/README.md)
+
+
+
