@@ -1,4 +1,4 @@
-##使用的 第三方库
+#the use of Third-Party Libraries(使用第三方库)
 
 ***
 
@@ -37,4 +37,10 @@
 	- UIBezierPath
 - PhotoBrowser:
 - XActionSheet上拉菜单
-- 自定义第三方库
+- 自定义第三方库(YNActionSheet)
+- DOImagePicker(照片选择器)
+- SwipeableCell(左滑编辑)
+- EAIntroView(引导页面)
+
+### 演示
+![homePage](Resource/personalHomepage.gif)

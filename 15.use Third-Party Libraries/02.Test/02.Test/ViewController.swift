@@ -8,11 +8,13 @@
 
 import UIKit
 
-
-class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,HZPhotoBrowserDelegate, YNActionSheetDelegate{
+// dataSource 一般包括一些接口所需要资源，数量，大小，颜色
+class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,HZPhotoBrowserDelegate, YNActionSheetDelegate,DoImagePickerControllerDelegate,SwipeableCellDataSource,SwipeableCellDelegate,EAIntroDelegate{
 
     var tableView:UITableView!
     var dataArray = [String]()
+    var isEdit = NSMutableArray()
+    
     var head:XHPathCover!
     
     override func viewDidLoad() {
@@ -27,7 +29,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         
         self.navigationItem.title = "Refresh"
         
-        self.tableView.registerClass(UITableViewCell.classForCoder(), forCellReuseIdentifier: "Cell")
+        self.tableView.registerClass(SwipeableCell.classForCoder(), forCellReuseIdentifier: "Cell")
         
         
         for(var i = 0;i<10;i++){
@@ -62,9 +64,11 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         head.sayHello()
         tableView.sayHello()
         
-        // clear Cache
-        SDImageCache.sharedImageCache().clearDisk()
-        SDImageCache.sharedImageCache().clearMemory()
+        self.guideView()
+        
+//        // clear Cache
+//        SDImageCache.sharedImageCache().clearDisk()
+//        SDImageCache.sharedImageCache().clearMemory()
         
         
     }
@@ -122,6 +126,64 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(time * Double(NSEC_PER_SEC))), dispatch_get_main_queue(), closure)
     }
     
+    // MARK : EAIntroDelegate
+    func introDidFinish(introView: EAIntroView!) {
+        self.navigationController?.navigationBar.hidden = false
+    }
+    
+    // MARK : SwipeableCellDelegate
+    func swipeableCellDidOpen(cell: SwipeableCell!) {
+        var indexpath = tableView.indexPathForCell(cell) as NSIndexPath!
+        self.isEdit.addObject(indexpath)
+    }
+    func swipeableCellDidClose(cell: SwipeableCell!) {
+        var indexPath = tableView.indexPathForCell(cell) as NSIndexPath!
+        self.isEdit.removeObject(indexPath)
+    }
+    func swipeableCell(cell: SwipeableCell!, didSelectButtonAtIndex index: Int) {
+        if index == 0 {
+            var indexPath = tableView.indexPathForCell(cell) as NSIndexPath!
+            dataArray.removeAtIndex(indexPath.row)
+            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Left)
+            self.isEdit.removeObject(indexPath)
+        }
+        println(index)
+    }
+    
+    // MARK : SwipeableCellDataSource
+    func numberOfButtonsInSwipeableCell(cell: SwipeableCell!) -> Int {
+        return 3;
+    }
+    func swipeableCell(cell: SwipeableCell!, buttonForIndex index: Int) -> UIButton! {
+        var button = UIButton(frame: CGRectMake(0,0,60,60))
+        if index == 0 {
+            button.backgroundColor = UIColor.redColor()
+            button.setTitle("删除", forState: .Normal)
+        }
+        if index == 1{
+            button.backgroundColor = UIColor.blueColor()
+        }
+        if index == 2{
+            button.backgroundColor = UIColor.orangeColor()
+        }
+        return button
+    }
+    
+    // MARK : DoImagePickerControllerDelegate
+       func didCancelDoImagePickerController() {
+        self.dismissViewControllerAnimated(true, completion: { () -> Void in
+            
+        })
+    }
+    
+    func didSelectPhotosFromDoImagePickerController(picker: DoImagePickerController!, result aSelected: [AnyObject]!) {
+        var image = aSelected.first as! UIImage
+        head.avatarButton.setImage(image, forState: UIControlState.Normal)
+        self.dismissViewControllerAnimated(true, completion: { () -> Void in
+            
+        })
+    }
+    
     // MARK : XActionSheetDelegate/ YNActionSheetDelegate
     func buttonClick(index: Int) {
         println("\(index)")
@@ -132,6 +194,15 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
                     browserVC.currentImageIndex = 0
                     browserVC.delegate = self
                     browserVC.show()
+        }
+        if index == 1{
+            var picker = DoImagePickerController(nibName: "DoImagePickerController", bundle: nil)
+            picker.delegate = self // 回调
+            picker.nMaxCount = 1
+            picker.nColumnCount = 2
+            self.presentViewController(picker, animated: true, completion: { () -> Void in
+                
+            })
         }
     }
     
@@ -170,11 +241,11 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! SwipeableCell
         
 //        cell.textLabel?.text = self.dataArray[indexPath.row]
         
-        for view in cell.contentView.subviews{
+        for view in cell.containerView.subviews{
             view.removeFromSuperview()
         }
         var image = UIImageView(frame: CGRect(x: 10, y: 10, width: 60, height: 60))
@@ -183,11 +254,21 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         
         var url:NSURL = NSURL(string: "http://s1.dwstatic.com/group1/M00/AE/B4/c216a47354416d579df9f438f8c000ca.jpg")!
         image.sd_setImageWithURL(url, placeholderImage: UIImage(named: "cute_girl.jpg"))
-        cell.contentView.addSubview(image)
+        cell.containerView.addSubview(image)
         
         var label = UILabel(frame: CGRect(x: 80, y: 30, width: 100, height: 20))
         label.text = "\(indexPath.row)"
-        cell.contentView.addSubview(label)
+        cell.containerView.addSubview(label)
+        
+        cell.delegate = self
+        cell.dataSource = self
+        cell.setNeedsUpdateConstraints()
+        
+        if self.isEdit.containsObject(indexPath){
+            cell.openCell(false)
+        }else{
+            cell.closeCell(false)
+        }
         
         return cell
     }
@@ -208,6 +289,34 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     }
     
     
+    // MARK :Introduction Page
+    func guideView(){
+        self.navigationController?.navigationBar.hidden = true
+        var page1 = EAIntroPage()
+        page1.bgImage = UIImage(named: "image1.jpg")
+        page1.title = "引导页的标语"
+        page1.titlePositionY = 400 // 从下往上
+        page1.titleFont = UIFont.systemFontOfSize(20)
+        page1.desc = "youyinan 引导页面的创建～～"
+
+        
+        var page2 = EAIntroPage()
+        page2.bgImage = UIImage(named: "image2.jpg")
+        page2.title = "引导页的标语2"
+        page1.titlePositionY = 400 // 从下往上
+        page1.titleFont = UIFont.systemFontOfSize(20)
+        
+        var page3 = EAIntroPage()
+        page3.title = "引导页面3"
+        page3.bgImage = UIImage(named: "image3.jpg")
+        page1.titlePositionY = 400 // 从下往上
+        page1.titleFont = UIFont.systemFontOfSize(20)
+        
+        var intro = EAIntroView(frame: self.view.frame, andPages: [page1,page2,page3])
+        intro.delegate = self
+        intro.showInView(self.view)
+        page1.titleFont = UIFont.systemFontOfSize(20)
+    }
     
 
     override func didReceiveMemoryWarning() {
