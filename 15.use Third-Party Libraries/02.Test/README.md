@@ -43,4 +43,4 @@
 - EAIntroView(引导页面)
 
 ### 演示
-![homePage](15.use Third-Party Libraries/02.Test/Resource/personalHomepage.gif)
+![homePage](/15.use Third-Party Libraries/02.Test/Resource/personalHomepage.gif)
