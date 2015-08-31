@@ -55,7 +55,7 @@ class PNChartViewController: UIViewController,UITableViewDataSource,UITableViewD
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! UITableViewCell
         cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
-        cell.textLabel?.text = self.dictionary["indexPath.row"]
+        cell.textLabel?.text = self.dictionary["\(indexPath.row)"]
         return cell
     }
     
@@ -65,6 +65,7 @@ class PNChartViewController: UIViewController,UITableViewDataSource,UITableViewD
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
         let viewController = MenuListViewController()
+        viewController.type = self.dictionary["\(indexPath.row)"]
         self.navigationController?.pushViewController(viewController, animated: true)
     }
 
