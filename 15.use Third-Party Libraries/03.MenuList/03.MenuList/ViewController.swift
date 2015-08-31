@@ -13,9 +13,11 @@ class ViewController: UIViewController,AwesomeMenuDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        self.navigationController?.navigationBar.backgroundColor = UIColor(red: 0.7, green: 0.7, blue: 0, alpha: 0.8)
+        
         var storyMenuImage = UIImage(named: "bg-menuitem.png")
         var storyMenuImagePressed = UIImage(named: "bg-menuitem-highlighted.png")
-        var startImage = UIImage(named: "icon-star")
+        var startImage = UIImage(named: "icon-star.png")
         
         var item1 = AwesomeMenuItem(image: storyMenuImage, highlightedImage: storyMenuImagePressed, contentImage: startImage, highlightedContentImage: nil)
         var item2 = AwesomeMenuItem(image: storyMenuImage, highlightedImage: storyMenuImagePressed, contentImage: startImage, highlightedContentImage: nil)
@@ -28,13 +30,13 @@ class ViewController: UIViewController,AwesomeMenuDelegate {
         menu.delegate = self
         self.view.addSubview(menu)
         
-        menu.rotateAngle = (CGFloat)(M_PI)/2    // menuItem呈现的位置（顺时针旋转弧度制）
-        menu.menuWholeAngle = (CGFloat)(M_PI)/2 // 菜单的呈现范围大小（弧度制）
+        menu.rotateAngle = (CGFloat)(2 * M_PI - (M_PI)/3)    // menuItem呈现的位置（顺时针旋转弧度制）
+        menu.menuWholeAngle = (CGFloat)(M_PI)/3 * 2 // 菜单的呈现范围大小（弧度制）
         
-        menu.timeOffset = 0.1 // dispaly delay
-        menu.farRadius = 200
-        menu.nearRadius = 100
-        menu.endRadius = 150
+        menu.timeOffset = 0.05 // dispaly delay
+        menu.farRadius = 100
+        menu.nearRadius = 75
+        menu.endRadius = 87.5
     }
 
     override func didReceiveMemoryWarning() {

@@ -41,6 +41,8 @@
 - DOImagePicker(照片选择器)
 - SwipeableCell(左滑编辑)
 - EAIntroView(引导页面)
+- [AwesomeMenu(按钮)](https://github.com/levey/AwesomeMenu)
+- [PNChart(图表绘制)](https://github.com/kevinzhow/PNChart)
 
 ### 演示
 ![homePage](/15.use Third-Party Libraries/02.Test/Resource/Homepage.gif)
