@@ -40,12 +40,12 @@ class MenuListViewController: UIViewController {
     */
     func LineChart(){
         println("LineChart")
-        var dataArray = [5,3,1,2,7]
+
         // UIView
         let LineChart = PNLineChart(frame: CGRect(x: 0, y: (self.view.frame.width / 2), width: 400, height: 300))
         LineChart.setXLabels(["X1","X2","X3","X4","X5"], withWidth: 50)
         
-        
+        var dataArray = [5,3,1,2,7]
         let LineData = PNLineChartData()
         LineData.color = UIColor.redColor()
         LineData.itemCount = (UInt)(dataArray.count)
@@ -63,18 +63,44 @@ class MenuListViewController: UIViewController {
             return PNLineChartDataItem(y: y)
         })
         
-        LineChart.chartData = [LineData,LineData2]
+        var dataArray3 = [2,5,7,6,3]
+        let LineData3 = PNLineChartData()
+        LineData3.color = UIColor.yellowColor()
+        LineData3.itemCount = (UInt)(dataArray.count)
+        LineData3.getData = ({(index:UInt) ->PNLineChartDataItem in
+            let y: CGFloat = (CGFloat)(dataArray3[(Int)(index)])
+            return PNLineChartDataItem(y: y)
+        })
+        
+        LineChart.chartData = [LineData,LineData2,LineData3]
         LineChart.strokeChart()
         self.view.addSubview(LineChart)
     }
     func BarChart(){
         println("BarChart")
+        let barChart = PNBarChart(frame: CGRect(x: 0, y: (self.view.frame.width / 2), width: 400, height: 300))
+        barChart.xLabels = ["X1","X2","X3","X4","X5"]
+        barChart.yValues = ["5","1","9","4","6"]
+        barChart.strokeChart()
+        self.view.addSubview(barChart)
     }
     func CircleChart(){
         println("CircleChart")
+        let CircleChart = PNCircleChart(frame:  CGRectMake(0, (self.view.frame.width / 2), 400, 300), total: NSNumber(double: 100), current: NSNumber(double: 60), clockwise: false, shadow: false, shadowColor: UIColor.redColor())
+        CircleChart.strokeColor = UIColor.blueColor()
+        CircleChart.strokeChart()
+        self.view.addSubview(CircleChart)
     }
     func PieChart(){
         println("PieChart")
+        let items = [PNPieChartDataItem(value: 20, color: UIColor.grayColor(), description: "YouYinan"),
+            PNPieChartDataItem(value: 30, color: UIColor.blueColor(), description: "游义男"),
+            PNPieChartDataItem(value: 50, color: UIColor.redColor(), description: "Others")]
+        let pieChart = PNPieChart(frame: CGRect(x: 0, y: (self.view.frame.width / 2), width: (self.view.frame.width) , height: 300),items:items)
+        pieChart.descriptionTextFont = UIFont.systemFontOfSize(14)
+        pieChart.descriptionTextColor = UIColor.whiteColor()
+        pieChart.strokeChart()
+        self.view.addSubview(pieChart)
     }
     
     
