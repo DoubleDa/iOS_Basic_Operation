@@ -3,15 +3,9 @@
 ***
 
 1. MJRefresh
-
 	- `self.tableView.addLegendHeaderWithRefreshingTarget(self, refreshingAction: "headerRefresh")`
     - `self.tableView.addGifFooterWithRefreshingTarget(self, refreshingAction: "footerRefresh")`
-    -  代码：
-    	```
-    	func delay(time:Double,closure:() ->()){
-        	dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(time * Double(NSEC_PER_SEC))), dispatch_get_main_queue(), closure)
-    	}
-       ```
+    -  代码：`func delay(time:Double,closure:() ->()){dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(time * Double(NSEC_PER_SEC))), dispatch_get_main_queue(), closure)}`
 2. ProgressHUD
 	 - show()
 	 - showSuccess()
