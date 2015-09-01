@@ -1,0 +1,18 @@
+# 集合类型(Collection Types)
+
+***
+
+1. 集合的可变性
+2. 数组
+3. 集合
+4. 字典
+	- 定义、字典字面量: `var dictionary:[Int:String] = [6,"value"]`
+	- `dictionary.count` ,`dictionary.isEmpty`,`dictionary[6] = nil`
+	- 更新值，并返回oldValue，`dictionary.uppdateValue()` 
+	- Swift 的字典类型是无序集合类型。为了以特定的顺序遍历字典的键或值,可以对字典的keys或values属性使 用sort()方法。
+5. 字典字面量
+	- for
+		－ for in (array,dictionary,range,string等)
+	- while
+	- 条件语句
+	- 控制转移语句
