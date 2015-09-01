@@ -43,6 +43,19 @@
 - EAIntroView(引导页面)
 - [AwesomeMenu(按钮)](https://github.com/levey/AwesomeMenu)
 - [PNChart(图表绘制)](https://github.com/kevinzhow/PNChart)
-
+	- legend(label)
+	- update
+	- callback(invoke delegate)
+- [POPAnimation]()
+	- POPBasicAnimation
+	- POPSpringAnimation
+	- POPDecayAnimation
+	- POPCunstomAnimation
+- [XSportLight(聚光灯效果)](https://github.com/StrongX/XSportLight)
+- [SwiftyUserDefaults](https://github.com/radex/SwiftyUserDefaults)
+	- NSUserDefaults的轻量级封装
+	- 存储和读取 ``
+	- 扩展功能
+	- [demo](/15.use Third-Party Libraries/03.MenuList/SwiftyUserDefaultsDemo.swift)
 ### 演示
 ![homePage](/15.use Third-Party Libraries/02.Test/Resource/Homepage.gif)

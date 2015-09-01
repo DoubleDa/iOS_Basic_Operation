@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MenuListViewController: UIViewController {
+class MenuListViewController: UIViewController,PNChartDelegate {
     var type: String!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -75,6 +75,36 @@ class MenuListViewController: UIViewController {
         LineChart.chartData = [LineData,LineData2,LineData3]
         LineChart.strokeChart()
         self.view.addSubview(LineChart)
+        
+        LineData.dataTitle = "YouYinan"
+        LineData2.dataTitle = "游义男"
+        LineData3.dataTitle = "Others"
+        LineChart.legendStyle = .Serial
+        
+        // 标签 legend
+        var legend = LineChart.getLegendWithMaxWidth(400)
+        legend.frame = CGRect(x: 0, y: (self.view.frame.width / 2), width: 400, height: 300)
+        self.view.addSubview(legend)
+        
+        // update data
+        legend.removeFromSuperview()
+        var dataArray4 = [3,4,8,6,1]
+        let LineData4 = PNLineChartData()
+        LineData4.color = UIColor.yellowColor()
+        LineData4.itemCount = (UInt)(dataArray.count)
+        LineData4.getData = ({(index:UInt) ->PNLineChartDataItem in
+            let y: CGFloat = (CGFloat)(dataArray4[(Int)(index)])
+            return PNLineChartDataItem(y: y)
+        })
+        LineData4.dataTitle = "update data"
+        LineChart.updateChartData([LineData3,LineData])
+        LineChart.strokeChart()
+        
+        var legend2 = LineChart.getLegendWithMaxWidth(400)
+        legend2.frame = CGRect(x: 0, y: (self.view.frame.width / 2), width: 400, height: 300)
+        self.view.addSubview(legend2)
+        
+        LineChart.delegate = self
     }
     func BarChart(){
         println("BarChart")
@@ -101,6 +131,20 @@ class MenuListViewController: UIViewController {
         pieChart.descriptionTextColor = UIColor.whiteColor()
         pieChart.strokeChart()
         self.view.addSubview(pieChart)
+        
+        
+        var legend = pieChart.getLegendWithMaxWidth(400)
+        legend.frame = CGRect(x: 0, y: (self.view.frame.width / 2), width: 400, height: 300)
+        self.view.addSubview(legend)
+    }
+    
+    // MARK : delegate
+    // callback
+    func userClickedOnLinePoint(point: CGPoint, lineIndex: Int) {
+        println("\(lineIndex)" + ":" + "\(point)")
+    }
+    func userClickedOnLineKeyPoint(point: CGPoint, lineIndex: Int, pointIndex: Int) {
+        
     }
     
     
