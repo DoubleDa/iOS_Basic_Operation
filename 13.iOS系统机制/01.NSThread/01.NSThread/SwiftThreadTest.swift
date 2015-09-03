@@ -11,36 +11,34 @@ import UIKit
 class SwiftThreadTest:UIViewController {
     
     var queue = NSOperationQueue()
+    
     //    init()
     //    {
     //        //alloc
     //        super.init()
     //    }
     
-    deinit
-    {
+    deinit{
     //dealloc
-    }
+        }
     
-    func testGCDThread()
-    {
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
-    
-    //这里写需要大量时间的代码
-    
-    for var i = 0; i < 100000; i++
-    {
-    print("GCD thread running.")
-    }
-    
-    sleep(5);
-    
-    dispatch_async(dispatch_get_main_queue(), {
-    
-    //这里返回主线程，写需要主线程执行的代码
-    print("这里返回主线程，写需要主线程执行的代码")
-    })
-    })
+    /**
+    (二) GCD
+    */
+    func testGCDThread(){
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
+            //这里写需要大量时间的代码(循环、递归花费时间)
+            for var i = 0; i < 100000; i++ {
+                print("GCD thread running.")
+            }
+            
+            sleep(5) // 调用sleep方法等待同步锁
+            
+            dispatch_async(dispatch_get_main_queue(), {
+                //这里返回主线程，写需要主线程执行的代码
+                print("这里返回主线程，写需要主线程执行的代码")
+            })
+        })
     }
     
     /**
@@ -48,8 +46,7 @@ class SwiftThreadTest:UIViewController {
     - 优点：简单快捷
     - 缺点：无法对线程进行更详细的设置
     */
-    func testNSThread()
-    {
+    func testNSThread(){
         // 1.创建线程后自动启动：
         //        NSThread.detachNewThreadSelector("threadInMainMethod", toTarget: self, withObject: nil)
         // 隐私创建并启动线程
@@ -64,35 +61,31 @@ class SwiftThreadTest:UIViewController {
         //        myThread = NSThread.mainThread() // 返回主线程
     }
     
-    func threadInMainMethod(sender : AnyObject)
-    {
-    for var i = 0; i < 100000; i++
-    {
-    print("NSThread running.")
+    func threadInMainMethod(sender : AnyObject){
+        for var i = 0; i < 100000; i++ {
+            print("NSThread running.")
+        }
+    
+        sleep(5);
+        print("NSThread over.")
     }
     
-    sleep(5);
-    print("NSThread over.")
+    func testNSOperationQueue(){
+        //func (op: NSOperation!)
+        var mopt = myOperationThread()
+        queue.addOperation(mopt)
+        }
     }
     
-    func testNSOperationQueue()
-    {
-    //func (op: NSOperation!)
-    var mopt = myOperationThread()
-    queue.addOperation(mopt)
-    }
-    }
-    
-    
-    class myOperationThread : NSOperation
-    {
-        override func start()
-        {
+
+
+
+class myOperationThread : NSOperation{
+        override func start(){
             super.start()
         }
         
-        override func main()
-        {
+        override func main(){
             for var i = 0; i < 100000; i++
             {
                 print("NSOperation running.")

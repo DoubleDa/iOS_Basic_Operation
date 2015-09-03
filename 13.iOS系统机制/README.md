@@ -72,8 +72,8 @@
 	#### 具体用法和实现
 
 	 1. [多线程(一)NSThread](/13.iOS系统机制/iOS多线程(一)NSThread.md)
-	 2. [多线程(二)GCD](/13.iOS系统机制/iOS多线程(一)GCD.md)
-	 3. [多线程(三)NSOperation](/13.iOS系统机制/iOS多线程(三)NSThread.md)
+	 2. [多线程(二)GCD](/13.iOS系统机制/iOS多线程(二)GCD.md)
+	 3. [多线程(三)NSOperation](/13.iOS系统机制/iOS多线程(三)NSOperation.md)
 
 ***
 ###测试结果:
