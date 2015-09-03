@@ -1,5 +1,6 @@
-#iOS多线程总结 // Dispatch tableview刷新效率变快
-转至(http://www.jianshu.com/p/af3c666685ba)
+#iOS多线程总结 
+
+// Dispatch tableview刷新效率变快
 
 ***
  * Foundation
@@ -75,6 +76,6 @@
 
 ***
 ###测试结果:
-![图片1](/Resource/1.png)
-![图片2](/Resource/2.png)
+![图片1](13.iOS系统机制/Resource/1.png)
+![图片2](13.iOS系统机制/Resource/2.png)
 
