@@ -72,3 +72,9 @@
 		* [多线程(一)NSThread]()
 		* [多线程(二)GCD]()
 		* [多线程(三)NSOperation]()
+
+***
+###测试结果:
+![图片1](/Resource/1.png)
+![图片2](/Resource/2.png)
+
