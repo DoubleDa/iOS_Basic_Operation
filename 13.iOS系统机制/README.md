@@ -71,12 +71,12 @@
 
 	#### 具体用法和实现
 
-		 * [多线程(一)NSThread]()
-		 * [多线程(二)GCD]()
-		 * [多线程(三)NSOperation]()
+	 1. [多线程(一)NSThread](/13.iOS系统机制/iOS多线程(一)NSThread.md)
+	 2. [多线程(二)GCD](/13.iOS系统机制/iOS多线程(一)GCD.md)
+	 3. [多线程(三)NSOperation](/13.iOS系统机制/iOS多线程(三)NSThread.md)
 
 ***
 ###测试结果:
-![图片1](/13.iOS系统机制/Resource/2.png)
+![图片1](/13.iOS系统机制/Resource/3.png)
 ![图片2](/13.iOS系统机制/Resource/1.png)
 
