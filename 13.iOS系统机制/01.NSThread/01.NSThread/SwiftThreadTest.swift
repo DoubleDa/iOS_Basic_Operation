@@ -43,15 +43,25 @@ class SwiftThreadTest:UIViewController {
     })
     }
     
+    /**
+    // 上述2种创建线程方式的优缺点
+    - 优点：简单快捷
+    - 缺点：无法对线程进行更详细的设置
+    */
     func testNSThread()
     {
-    //方式一
-    //NSThread.detachNewThreadSelector("threadInMainMethod:",toTarget:self,withObject:nil)
-    
-    //方式二
-    var myThread = NSThread(target:self,selector:"threadInMainMethod:",object:nil)
-    myThread.start()
-    
+        // 1.创建线程后自动启动：
+        //        NSThread.detachNewThreadSelector("threadInMainMethod", toTarget: self, withObject: nil)
+        // 隐私创建并启动线程
+        //        NSThread.performSelectorInBackground("threadInMainMethod", withObject: nil)
+        
+        // 2. 先创建，后启动 如果可变 var
+        // Note: selector中的冒号一定不能少，不能少
+        var myThread = NSThread(target: self, selector: "threadInMainMethod:", object: nil)
+        myThread.start()
+        
+        //        myThread.isMainThread  // Bool 是否为主线程
+        //        myThread = NSThread.mainThread() // 返回主线程
     }
     
     func threadInMainMethod(sender : AnyObject)
