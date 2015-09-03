@@ -77,6 +77,6 @@
 
 ***
 ###测试结果:
-![图片1](/13.iOS系统机制/Resource/1.png)
-![图片2](/13.iOS系统机制/Resource/2.png)
+![图片1](/13.iOS系统机制/Resource/2.png)
+![图片2](/13.iOS系统机制/Resource/1.png)
 
