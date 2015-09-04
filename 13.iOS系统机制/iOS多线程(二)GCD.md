@@ -34,13 +34,12 @@
  	 可以在新的线程中执行任务，具备开启新线程的能力
 
 >	queue: quality of service
-
- QOS_CLASS_USER_INTERACTIVE 0x21,              用户交互(希望尽快完成，用户对结果很期望，不要放太耗时操作)
- QOS_CLASS_USER_INITIATED 0x19,                用户期望(不要放太耗时操作)
- QOS_CLASS_DEFAULT 0x15,                        默认(不是给程序员使用的，用来重置对列使用的)
- QOS_CLASS_UTILITY 0x11,                        实用工具(耗时操作，可以使用这个选项)
- QOS_CLASS_BACKGROUND 0x09,                     后台
- QOS_CLASS_UNSPECIFIED 0x00,                    未指定
+ * QOS_CLASS_USER_INTERACTIVE 0x21,              用户交互(希望尽快完成，用户对结果很期望，不要放太耗时操作)
+ * QOS_CLASS_USER_INITIATED 0x19,                用户期望(不要放太耗时操作)
+ * QOS_CLASS_DEFAULT 0x15,                        默认(不是给程序员使用的，用来重置对列使用的)
+ * QOS_CLASS_UTILITY 0x11,                        实用工具(耗时操作，可以使用这个选项)
+ * QOS_CLASS_BACKGROUND 0x09,                     后台
+ * QOS_CLASS_UNSPECIFIED 0x00,                    未指定
 
 
 ####队列
