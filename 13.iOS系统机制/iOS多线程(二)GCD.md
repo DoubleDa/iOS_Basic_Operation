@@ -67,5 +67,23 @@ Compare:
 	 - 宏实现: 
 
 
-		
+###源码
+```
+dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY,0),{
+	// 花费大量时间的代码
+	for var i = 0;i<100000;i++ {
+		print("异步执行，这里要花费大量的时间，GCD")
+	}
+	dispathch_async(dispatch_get_main_queue(),{
+		// 需要主线程的执行代码
+		print("这里返回主线程，写需要主线程执行的代码"")
+	})
+})
+```
+
+***
+
+下一篇:
+
+[多线程(三)NSOperation](/13.iOS系统机制/iOS多线程(三)NSOperation.md)
 	

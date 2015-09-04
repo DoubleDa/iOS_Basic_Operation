@@ -76,5 +76,8 @@ atomic与nonatomic
 - (void)performSelector:(SEL)aSelector onThread:(NSThread *)thr withObject:(id)arg waitUntilDone:(BOOL)wait;
 ```
 
+***
 
+下一篇:
 
+[多线程(二)GCD](/13.iOS系统机制/iOS多线程(二)GCD.md)
