@@ -27,6 +27,7 @@
 	 - `dispatch_async(dispatch_get_global_queue(QOS_CLASS_INITIATED,0){ // 比较耗时的操作 })`
 - 用来执行任务的函数，前面的任务执行结束后才执行，它后面的任务等它执行完成之后才会执行
 	 - `dispatch_barrier_async(concurrentPhotoQueue) { // 1}`
+	 
 **注意** 
  - 同步:
  	 只能在当前线程中执行任务，不具备开启新线程的能力
