@@ -2,9 +2,10 @@
 
 ##GCD
 
-> 1. Grand Central Dispatch: "伟大的中枢调度器"
-  2. GCDGCD是苹果公司为多核的并行运算提出的解决方案
-  3. 纯C语言，提供了非常多强大的函数
+>  概念
+ - Grand Central Dispatch: "伟大的中枢调度器"
+ - GCDGCD是苹果公司为多核的并行运算提出的解决方案
+ - 纯C语言，提供了非常多强大的函数
 
 #### 优势
 1. GCD会自动利用更多的CPU内核(如何双核、四核)
@@ -27,7 +28,7 @@
 	 - `dispatch_async(dispatch_get_global_queue(QOS_CLASS_INITIATED,0){ // 比较耗时的操作 })`
 - 用来执行任务的函数，前面的任务执行结束后才执行，它后面的任务等它执行完成之后才会执行
 	 - `dispatch_barrier_async(concurrentPhotoQueue) { // 1}`
-	 
+
 **注意** 
  - 同步:
  	 只能在当前线程中执行任务，不具备开启新线程的能力
