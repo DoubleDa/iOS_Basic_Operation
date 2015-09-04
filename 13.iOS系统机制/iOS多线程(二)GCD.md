@@ -20,50 +20,50 @@
 	
 ####任务
 
-	- 执行任务
-	- 同步的方式执行任务
-		 - `dispatch_sync(dispatch_get_global_queue(QOS_CLASS_INITIATED,0){//code})`
-	- 异步的方式执行任务
-		 - `dispatch_async(dispatch_get_global_queue(QOS_CLASS_INITIATED,0){ // 比较耗时的操作 })`
-	- 用来执行任务的函数，前面的任务执行结束后才执行，它后面的任务等它执行完成之后才会执行
-		 - `dispatch_barrier_async(concurrentPhotoQueue) { // 1}`
-	**注意** 
-	 - 同步:
-	 	 只能在当前线程中执行任务，不具备开启新线程的能力
-	 - 异步: 
-	 	 可以在新的线程中执行任务，具备开启新线程的能力
+- 执行任务
+- 同步的方式执行任务
+	 - `dispatch_sync(dispatch_get_global_queue(QOS_CLASS_INITIATED,0){//code})`
+- 异步的方式执行任务
+	 - `dispatch_async(dispatch_get_global_queue(QOS_CLASS_INITIATED,0){ // 比较耗时的操作 })`
+- 用来执行任务的函数，前面的任务执行结束后才执行，它后面的任务等它执行完成之后才会执行
+	 - `dispatch_barrier_async(concurrentPhotoQueue) { // 1}`
+**注意** 
+ - 同步:
+ 	 只能在当前线程中执行任务，不具备开启新线程的能力
+ - 异步: 
+ 	 可以在新的线程中执行任务，具备开启新线程的能力
 
-	>	queue: quality of service
-	
-	 QOS_CLASS_USER_INTERACTIVE 0x21,              用户交互(希望尽快完成，用户对结果很期望，不要放太耗时操作)
-     QOS_CLASS_USER_INITIATED 0x19,                用户期望(不要放太耗时操作)
-     QOS_CLASS_DEFAULT 0x15,                        默认(不是给程序员使用的，用来重置对列使用的)
-     QOS_CLASS_UTILITY 0x11,                        实用工具(耗时操作，可以使用这个选项)
-     QOS_CLASS_BACKGROUND 0x09,                     后台
-     QOS_CLASS_UNSPECIFIED 0x00,                    未指定
+>	queue: quality of service
+
+ QOS_CLASS_USER_INTERACTIVE 0x21,              用户交互(希望尽快完成，用户对结果很期望，不要放太耗时操作)
+ QOS_CLASS_USER_INITIATED 0x19,                用户期望(不要放太耗时操作)
+ QOS_CLASS_DEFAULT 0x15,                        默认(不是给程序员使用的，用来重置对列使用的)
+ QOS_CLASS_UTILITY 0x11,                        实用工具(耗时操作，可以使用这个选项)
+ QOS_CLASS_BACKGROUND 0x09,                     后台
+ QOS_CLASS_UNSPECIFIED 0x00,                    未指定
 
 
 ####队列
-	- 并发队列（Concurrent Dispatch Queue）
-		 - 可以让多个任务并发（同时）执行（自动开启多个线程同时执行任务）
-		 - 并发功能只有在异步（dispatch_async）函数下才有效
+- 并发队列（Concurrent Dispatch Queue）
+	 - 可以让多个任务并发（同时）执行（自动开启多个线程同时执行任务）
+	 - 并发功能只有在异步（dispatch_async）函数下才有效
 
-		 >  dispatch_async() 
+	 >  dispatch_async() 
 
 
 
-	- 串行队列（Serial Dispatch Queue）
-	 	 - 让任务一个接着一个地执行（一个任务执行完毕后，再执行下一个任务）
-	- 各种队列的执行效果
+- 串行队列（Serial Dispatch Queue）
+ 	 - 让任务一个接着一个地执行（一个任务执行完毕后，再执行下一个任务）
+- 各种队列的执行效果
 
 > 
 Compare:
-	 1.同步和异步主要影响：能不能开启新的线程
-		 - 同步：只是在当前线程中执行任务，不具备开启新线程的能力
-		 - 异步：可以在新的线程中执行任务，具备开启新线程的能力
-	 2.并发和串行主要影响：任务的执行方式
-		 - 并发：多个任务并发（同时）执行
-		 - 串行：一个任务执行完毕后，再执行下一个任务
+ 1.同步和异步主要影响：能不能开启新的线程
+	 - 同步：只是在当前线程中执行任务，不具备开启新线程的能力
+	 - 异步：可以在新的线程中执行任务，具备开启新线程的能力
+ 2.并发和串行主要影响：任务的执行方式
+	 - 并发：多个任务并发（同时）执行
+	 - 串行：一个任务执行完毕后，再执行下一个任务
 
 
 ###GCD运用
