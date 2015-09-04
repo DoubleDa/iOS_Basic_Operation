@@ -26,15 +26,32 @@ class PhotoManager {
   private var _photos: [Photo] = []
   var photos: [Photo] {
     // FIXME: Not thread-safe
-    return _photos
+    var photosCopy:[Photo]!
+    dispatch_sync(concurrentPhotoQueue, { () -> Void in
+      photosCopy = self._photos
+    })
+    
+    return photosCopy
   }
+  
+  // 自定义并发队列，处理屏障函数隔离读写操作
+  // 使用dispatch_queue_create初始化一个并发队列concurrentPhotoQueue。第一个参数遵循反向DNS命名习惯；保证描述性以利于调试。第二个参数指出你的队列是顺序(SERIAL)的还是并发的(CONCURRENT)
+//  注意：当在网上搜索例子时，你经常看到人们传0或NULL作为dispatch_queue_create的第二个参数。这是一种过时的方法来生成顺序调度队列；最好用参数显示声明。
+  private let concurrentPhotoQueue = dispatch_queue_create("com.raywenderlich.GooglyPuff.photoQueue", DISPATCH_QUEUE_CONCURRENT)
 
   func addPhoto(photo: Photo) {
     // FIXME: Not thread-safe
-    _photos.append(photo)
-    dispatch_async(dispatch_get_main_queue()) {
-      self.postContentAddedNotification()
-    }
+//    _photos.append(photo)
+//    dispatch_async(dispatch_get_main_queue()) {
+//      self.postContentAddedNotification()
+//    }
+    dispatch_barrier_async(concurrentPhotoQueue, { () -> Void in
+      self._photos.append(photo)
+      dispatch_async(GlobalMainQueue, { () -> Void in
+        self.postContentAddedNotification()
+      })
+    })
+    
   }
 
   func downloadPhotosWithCompletion(completion: BatchPhotoDownloadingCompletionClosure?) {
