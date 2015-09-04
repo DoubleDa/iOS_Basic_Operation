@@ -26,7 +26,7 @@ class SwiftThreadTest:UIViewController {
     (二) GCD
     */
     func testGCDThread(){
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
+        dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED , 0), {
             //这里写需要大量时间的代码(循环、递归花费时间)
             for var i = 0; i < 100000; i++ {
                 print("GCD thread running.")
