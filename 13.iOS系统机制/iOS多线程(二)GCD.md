@@ -43,6 +43,12 @@
  * QOS_CLASS_BACKGROUND 0x09,                     后台
  * QOS_CLASS_UNSPECIFIED 0x00,                    未指定
 
+ 	int64_t delta 单位为纳秒
+ * var NSEC_PER_SEC: UInt64 { get }   			每秒有多少纳秒(10^9)
+ * var NSEC_PER_MSEC: UInt64 { get }			每毫秒有多少纳秒(10^6)
+ * var USEC_PER_SEC: UInt64 { get }				每秒有多少微秒(10^6)
+ * var NSEC_PER_USEC: UInt64 { get }			每微秒有多少纳秒(10^3)
+
 
 ####队列
 - 并发队列（Concurrent Dispatch Queue）
