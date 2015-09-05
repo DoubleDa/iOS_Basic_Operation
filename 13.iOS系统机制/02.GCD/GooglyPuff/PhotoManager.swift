@@ -54,51 +54,92 @@ class PhotoManager {
     
   }
 
-  func downloadPhotosWithCompletion(completion: BatchPhotoDownloadingCompletionClosure?) {
-//    var storedError: NSError?
-//    for address in [OverlyAttachedGirlfriendURLString,
-//                    SuccessKidURLString,
-//                    LotsOfFacesURLString] {
-//      let url = NSURL(string: address)
-//      let photo = DownloadPhoto(url: url!) {
-//        image, error in
-//        if error != nil {
-//          storedError = error
-//        }
-//      }
-//      PhotoManager.sharedManager.addPhoto(photo)
-//    }
-//
-//    if let completion = completion {
-//      completion(error: storedError)
-//    }
-    
-    dispatch_async(GlobalUserInitiatedQueue , { () -> Void in
-      var storedError: NSError?
-      var downloadGroup = dispatch_group_create()
-//          for address in [OverlyAttachedGirlfriendURLString,
-//                          SuccessKidURLString,
-//                          LotsOfFacesURLString] {
-//            let url = NSURL(string: address)
-//            dispatch_group_enter(downloadGroup)
-//            let photo = DownloadPhoto(url: url!) {
-//              image, error in
-//              if error != nil {
-//                storedError = error
-//              }
-//              dispatch_group_leave(downloadGroup)
-//            }
-//            PhotoManager.sharedManager.addPhoto(photo)
+//  func downloadPhotosWithCompletion(completion: BatchPhotoDownloadingCompletionClosure?) {
+////    var storedError: NSError?
+////    for address in [OverlyAttachedGirlfriendURLString,
+////                    SuccessKidURLString,
+////                    LotsOfFacesURLString] {
+////      let url = NSURL(string: address)
+////      let photo = DownloadPhoto(url: url!) {
+////        image, error in
+////        if error != nil {
+////          storedError = error
+////        }
+////      }
+////      PhotoManager.sharedManager.addPhoto(photo)
+////    }
+////
+////    if let completion = completion {
+////      completion(error: storedError)
+////    }
+//    
+//    dispatch_async(GlobalUserInitiatedQueue , { () -> Void in
+//      var storedError: NSError?
+//      var downloadGroup = dispatch_group_create()
+////          for address in [OverlyAttachedGirlfriendURLString,
+////                          SuccessKidURLString,
+////                          LotsOfFacesURLString] {
+////            let url = NSURL(string: address)
+////            dispatch_group_enter(downloadGroup)
+////            let photo = DownloadPhoto(url: url!) {
+////              image, error in
+////              if error != nil {
+////                storedError = error
+////              }
+////              dispatch_group_leave(downloadGroup)
+////            }
+////            PhotoManager.sharedManager.addPhoto(photo)
+////          }
+//      
+//      let addresses = [OverlyAttachedGirlfriendURLString,
+//                                SuccessKidURLString,
+//                                  LotsOfFacesURLString]
+//      dispatch_apply(addresses.count, GlobalMainQueue, { (i) -> Void in
+//        let index = Int(i)
+//        let address = addresses[index]
+//        let url = NSURL(string: address)
+//        dispatch_group_leave(downloadGroup)
+//        let photo = DownloadPhoto(url: url!) {
+//          image, error in
+//          if let error = error {
+//            storedError = error
 //          }
-      
-      let addresses = [OverlyAttachedGirlfriendURLString,
-                                SuccessKidURLString,
-                                  LotsOfFacesURLString]
-      dispatch_apply(addresses.count, GlobalMainQueue, { (i) -> Void in
+//          dispatch_group_leave(downloadGroup)
+//        }
+//        PhotoManager.sharedManager.addPhoto(photo)
+//      })
+//      
+//      
+////        dispatch_group_wait(downloadGroup, DISPATCH_TIME_FOREVER)
+////      dispatch_async(GlobalMainQueue, { () -> Void in
+////        if let completion = completion {
+////          completion(error: storedError)
+////        }
+////      })
+//      // 对于在不限制任何线程运行的情况下处理这种特殊需求的例子来说，这是一种较为简洁的方式
+//      dispatch_group_notify(downloadGroup, GlobalMainQueue, { () -> Void in
+//        if let completion = completion {
+//          completion(error: storedError)
+//        }
+//      })
+//    })
+//  }
+  
+  func downloadPhotosWithCompletion(completion: BatchPhotoDownloadingCompletionClosure?) {
+    var storedError: NSError!
+    let downloadGroup = dispatch_group_create()
+    var addresses = [OverlyAttachedGirlfriendURLString,
+      SuccessKidURLString,
+      LotsOfFacesURLString]
+    addresses += addresses + addresses // 1
+    var blocks: [dispatch_block_t] = [] // 2
+    
+    for i in 0 ..< addresses.count {
+      dispatch_group_enter(downloadGroup)
+      let block = dispatch_block_create(DISPATCH_BLOCK_INHERIT_QOS_CLASS) { // 3
         let index = Int(i)
         let address = addresses[index]
         let url = NSURL(string: address)
-        dispatch_group_leave(downloadGroup)
         let photo = DownloadPhoto(url: url!) {
           image, error in
           if let error = error {
@@ -107,24 +148,25 @@ class PhotoManager {
           dispatch_group_leave(downloadGroup)
         }
         PhotoManager.sharedManager.addPhoto(photo)
-      })
-      
-      
-//        dispatch_group_wait(downloadGroup, DISPATCH_TIME_FOREVER)
-//      dispatch_async(GlobalMainQueue, { () -> Void in
-//        if let completion = completion {
-//          completion(error: storedError)
-//        }
-//      })
-      // 对于在不限制任何线程运行的情况下处理这种特殊需求的例子来说，这是一种较为简洁的方式
-      dispatch_group_notify(downloadGroup, GlobalMainQueue, { () -> Void in
-        if let completion = completion {
-          completion(error: storedError)
-        }
-      })
-    })
+      }
+      blocks.append(block)
+      dispatch_async(GlobalMainQueue, block) // 4
+    }
+    
+    for block in blocks[3 ..< blocks.count] { // 5
+      let cancel = arc4random_uniform(2) // 6
+      if cancel == 1 {
+        dispatch_block_cancel(block) // 7
+        dispatch_group_leave(downloadGroup) // 8
+      }
+    }
+    
+    dispatch_group_notify(downloadGroup, GlobalMainQueue) {
+      if let completion = completion {
+        completion(error: storedError)
+      }
+    }
   }
-
   private func postContentAddedNotification() {
     NSNotificationCenter.defaultCenter().postNotificationName(PhotoManagerAddedContentNotification, object: nil)
   }

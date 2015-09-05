@@ -72,9 +72,9 @@ Compare:
  - 线程间通信：
 
  - 延时执行
- `dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-    // 2秒后异步执行这里的代码...
- });`
+ 	 `dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+     // 2秒后异步执行这里的代码...
+ 	 });`
  - 一次性代码
 	 `// 使用dispatch_once函数能保证某段代码在程序运行过程中只被执行1次
 	 static dispatch_once_t onceToken;
@@ -82,22 +82,23 @@ Compare:
 	    // 只执行1次的代码(这里面默认是线程安全的)
 	 });`
  - 快速迭代
- // 使用dispatch_apply函数能进行快速迭代遍历
-dispatch_apply(10, dispatch_get_global_queue(0, 0), ^(size_t index){
-    // 执行10次代码，index顺序不确定
-});
+	 ` // 使用dispatch_apply函数能进行快速迭代遍历
+ 	 dispatch_apply(10, dispatch_get_global_queue(0, 0), ^(size_t index){
+     // 执行10次代码，index顺序不确定
+	 });`
  - 队列组
- `// 分别异步执行2个耗时的操作、2个异步操作都执行完毕后，再回到主线程执行操作
-dispatch_group_t group =  dispatch_group_create();
-dispatch_group_async(group, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-    // 执行1个耗时的异步操作
-});
-dispatch_group_async(group, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-    // 执行1个耗时的异步操作
-});
-dispatch_group_notify(group, dispatch_get_main_queue(), ^{
-    // 等前面的异步操作都执行完毕后，回到主线程...
-});`
+	 ```// 分别异步执行2个耗时的操作、2个异步操作都执行完毕后，再回到主线程执行操作
+	 dispatch_group_t group =  dispatch_group_create();
+	 dispatch_group_async(group, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+	    // 执行1个耗时的异步操作
+	 });
+	 dispatch_group_async(group, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+	    // 执行1个耗时的异步操作
+	 });
+	 dispatch_group_notify(group, dispatch_get_main_queue(), ^{
+	    // 等前面的异步操作都执行完毕后，回到主线程...
+	 });
+	```
 
 ###单例模式
 
