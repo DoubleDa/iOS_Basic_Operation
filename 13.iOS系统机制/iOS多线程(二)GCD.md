@@ -35,7 +35,7 @@
  - 异步: 
  	 可以在新的线程中执行任务，具备开启新线程的能力
 
->	queue: quality of service
+>	QOS: quality of service
  * QOS_CLASS_USER_INTERACTIVE 0x21,              用户交互(希望尽快完成，用户对结果很期望，不要放太耗时操作)
  * QOS_CLASS_USER_INITIATED 0x19,                用户期望(不要放太耗时操作)
  * QOS_CLASS_DEFAULT 0x15,                        默认(不是给程序员使用的，用来重置对列使用的)
@@ -46,6 +46,7 @@
 
 ####队列
 - 并发队列（Concurrent Dispatch Queue）
+`func dispatch_queue_create(label: UnsafePointer<Int8>, attr: dispatch_queue_attr_t!) -> dispatch_queue_t!`
 	 - 可以让多个任务并发（同时）执行（自动开启多个线程同时执行任务）
 	 - 并发功能只有在异步（dispatch_async）函数下才有效
 
@@ -68,11 +69,35 @@ Compare:
 
 
 ###GCD运用
- - 线程间通信
+ - 线程间通信：
+
  - 延时执行
+ `dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+    // 2秒后异步执行这里的代码...
+ });`
  - 一次性代码
+	 `// 使用dispatch_once函数能保证某段代码在程序运行过程中只被执行1次
+	 static dispatch_once_t onceToken;
+	 dispatch_once(&onceToken, ^{
+	    // 只执行1次的代码(这里面默认是线程安全的)
+	 });`
  - 快速迭代
+ // 使用dispatch_apply函数能进行快速迭代遍历
+dispatch_apply(10, dispatch_get_global_queue(0, 0), ^(size_t index){
+    // 执行10次代码，index顺序不确定
+});
  - 队列组
+ `// 分别异步执行2个耗时的操作、2个异步操作都执行完毕后，再回到主线程执行操作
+dispatch_group_t group =  dispatch_group_create();
+dispatch_group_async(group, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+    // 执行1个耗时的异步操作
+});
+dispatch_group_async(group, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+    // 执行1个耗时的异步操作
+});
+dispatch_group_notify(group, dispatch_get_main_queue(), ^{
+    // 等前面的异步操作都执行完毕后，回到主线程...
+});`
 
 ###单例模式
 
@@ -84,7 +109,7 @@ Compare:
 	 - 重写实现：
 	 - 宏实现: 
 
-
+	
 ###源码
 ```
 dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY,0),{
@@ -98,6 +123,9 @@ dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY,0),{
 	})
 })
 ```
+	
+> GCD中并发队列只有global的三个是并发处理栈内任务。自己创建的和main属性的都是串发的，栈与栈之前是并发的;GCD是通过BSD级别，在多核环境中对多线程并发的替代方案，不能单纯的用线程去做比较
+
 
 ***
 
