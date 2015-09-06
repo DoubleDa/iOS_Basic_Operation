@@ -13,6 +13,7 @@
 		7776CB7D1B9B35A30088DA2B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7776CB7C1B9B35A30088DA2B /* Assets.xcassets */; };
 		7776CB801B9B35A30088DA2B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7776CB7E1B9B35A30088DA2B /* LaunchScreen.storyboard */; };
 		7776CB881B9B39DD0088DA2B /* Singleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7776CB871B9B39DD0088DA2B /* Singleton.swift */; };
+		778ADAF31B9BBC3C005E2729 /* Singleton_1.2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 778ADAF21B9BBC3C005E2729 /* Singleton_1.2.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		7776CB7F1B9B35A30088DA2B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7776CB811B9B35A30088DA2B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7776CB871B9B39DD0088DA2B /* Singleton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Singleton.swift; sourceTree = "<group>"; };
+		778ADAF21B9BBC3C005E2729 /* Singleton_1.2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Singleton_1.2.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 				7776CB751B9B35A20088DA2B /* AppDelegate.swift */,
 				7776CB771B9B35A20088DA2B /* ViewController.swift */,
 				7776CB871B9B39DD0088DA2B /* Singleton.swift */,
+				778ADAF21B9BBC3C005E2729 /* Singleton_1.2.swift */,
 				7776CB791B9B35A30088DA2B /* Main.storyboard */,
 				7776CB7C1B9B35A30088DA2B /* Assets.xcassets */,
 				7776CB7E1B9B35A30088DA2B /* LaunchScreen.storyboard */,
@@ -138,6 +141,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7776CB781B9B35A20088DA2B /* ViewController.swift in Sources */,
+				778ADAF31B9BBC3C005E2729 /* Singleton_1.2.swift in Sources */,
 				7776CB881B9B39DD0088DA2B /* Singleton.swift in Sources */,
 				7776CB761B9B35A20088DA2B /* AppDelegate.swift in Sources */,
 			);
@@ -287,6 +291,7 @@
 				7776CB861B9B35A30088DA2B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
