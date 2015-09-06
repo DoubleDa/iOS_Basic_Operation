@@ -1,0 +1,15 @@
+#Swift(十二)下标脚本(Subscripts):
+
+ > 定义在class,struct,enum目标中，访问collection，list，sequence的快捷方式。使用下标脚本的索引设置和获取值,不需要 再调用实例的特定的赋值和访问方法.(array,dictionary)
+
+
+ - 语法：
+ ```
+ subscript(index:Int) ->Int {
+ 	get{
+ 		// 
+ 	}set(new value){
+ 		//
+ 	}
+ }
+ ```

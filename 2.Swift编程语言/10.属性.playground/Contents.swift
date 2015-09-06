@@ -76,6 +76,7 @@ enum SomeEnumeration{
         return 122
     }
 }
+// 类计算属性使用class 存储属性 static class 都行
 class SomeClass {
     class var computedTypeProperty: Int {
         return 123
