@@ -6,8 +6,11 @@
 //  Copyright © 2015年 游义男. All rights reserved.
 //
 
+// the use of HashTable
+
 import Foundation
 
+// 节点，，前一个，后一个，key value
 class Node<K,V> {
     var next:Node?
     var previous:Node?
@@ -20,6 +23,7 @@ class Node<K,V> {
     }
 }
 
+// 动态链表  Node<K,V> 与 Node 的区别
 class LinkList<K,V> {
     var head:Node<K,V>?
     var tail:Node<K,V>?
