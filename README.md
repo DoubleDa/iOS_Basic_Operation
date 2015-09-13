@@ -5,20 +5,20 @@
 * ## 1. 环境准备 
 开发前所需环境、相关软件的安装及使用详解。
 
-* [iOS开发前准备](1.环境准备/README.md)
+* [iOS开发前准备](1.环境准备/)
 4课时 22分钟 本课介绍苹果公司、OS X和iOS操作系统。
 
-* [Xcode集成开发环境的安装使用与项目建立流程](1.环境准备/README.md)
+* [Xcode集成开发环境的安装使用与项目建立流程](1.环境准备/)
 8课时 27分钟 本课讲解如何使用Xcode开发IOS程序。
 
-* [Xcode6中Playground的特点和使用方法](1.环境准备/README.md)
+* [Xcode6中Playground的特点和使用方法](1.环境准备/)
 2课时 5分钟 掌握Xcode6中playground的特点和使用方法
 
-* [iOS开发常用操作及技巧](1.环境准备/README.md)
+* [iOS开发常用操作及技巧](1.环境准备/)
 3课时 15分钟 本课讲解常用问题的解决途径、使用帮助文档、提问。
 
 
-* [iOS程序打包与发布](1.环境准备/README.md)
+* [iOS程序打包与发布](1.环境准备/)
 3课时 8分钟 本课学习iOS程序测试，打包与发布的具体流程。
 
 * ## 2. Swift编程语言
@@ -27,43 +27,43 @@
 * [Swift语言基础教程](2.Swift编程语言/README.md)
 12课时 35分钟 本课学习Swift语言的基本语法、数据类型、数组、函数、面向对象和基本开发技巧。
 
-* [Swift语言与Objective-C语言混合编程](2.Swift编程语言/README.md)
+* [Swift语言与Objective-C语言混合编程](2.Swift编程语言/)
 1课时 4分钟 本课讲解Swift与Objective-C语言混合编程的操作，融合Swift语言和OC语言的优势，实现Swift调用OC代码         无缝混合编程。
 
-* [Swift语言面向对象详解](2.Swift编程语言/README.md)
+* [Swift语言面向对象详解](2.Swift编程语言/)
 6课时 23分钟 本课讲解Swift语言的面向对象，理解Swift语言命名空间。
 
-* [Swift语言调试技巧](2.Swift编程语言/README.md)
+* [Swift语言调试技巧](2.Swift编程语言/)
 2课时 8分钟 本课学习调试Swift程序，断点调试。
 
 * ## 3. iOS用户界面 
 本阶段主要讲解iOS用户界面相关知识，如基本UI控件，TableView，界面跳转等。(共4课程，103分钟)。
 
-* [iOS项目介绍](3.iOS用户界面/README.md)
+* [iOS项目介绍](3.iOS用户界面/)
 本课介绍iOS项目结构，学会开发简单程序。  
 
-* [iOS用户界面开发基本流程](3.iOS用户界面/README.md)
+* [iOS用户界面开发基本流程](3.iOS用户界面/)
 本课通过对UIWebiew，iOS StoryBoard，iOS Assistant editor等iOS UI控件的讲解，学会如何实现
 
-* [iOS列表控件TableView的开发与使用](3.iOS用户界面/README.md)
+* [iOS列表控件TableView的开发与使用](3.iOS用户界面/)
 本课时讲解iOS列表及自定义列表，学会使用iOS Table View。
 
-* [使用StoryBoard做iOS UI界面跳转](3.iOS用户界面/README.md)
+* [使用StoryBoard做iOS UI界面跳转](3.iOS用户界面/)
 本课时学习iOS UI界面跳转及面板之间传递数据。
 
 * ## 4. 界面优化 
 iOS界面绘图API、控件等知识。(共6课程，181分钟)。
 
-* [iOS绘图API绘制线条/文字/几何图形](/4.界面优化/1.iOS绘图API绘制线条、文字、几何图形/README.md)
+* [iOS绘图API绘制线条/文字/几何图形](/4.界面优化/1.iOS绘图API绘制线条、文字、几何图形/)
 本课程学习使用iOS提供的API绘制2D图形。  
 
-* [Xcode常用项目模板](4.界面优化/2.Xcode常用项目模板/README.md)
+* [Xcode常用项目模板](4.界面优化/2.Xcode常用项目模板/)
 本课学习使用Xcode提供的项目模板开发常见应用。
 
 * [屏幕适配]()
 学会使用屏幕适配。
 
-* [iOS自定义控件实例](4.界面优化/4.iOS自定义控件实例/README.md)
+* [iOS自定义控件实例](4.界面优化/4.iOS自定义控件实例/)
 本课程讲解自定义控件的用法。
 
 * [iOS的动画效果及实现方法]()
@@ -143,19 +143,19 @@ iOS界面绘图API、控件等知识。(共6课程，181分钟)。
 * [UICollectionViewDelegateFlowLayout](/10.UIKit/UICollectionViewDelegateFlowLayout)
 
 
-* ## [11.Swift网络编程](/11.Swift网络编程/README.md)
+* ## [11.Swift网络编程](/11.Swift网络编程/)
 
 
-* ## [12.CoreDate_Syntax](/12.CoreDate_Syntax/README.md)
+* ## [12.CoreDate_Syntax](/12.CoreDate_Syntax/)
 
 
-* ## [13.iOS系统机制](/13.iOS系统机制/README.md)
+* ## [13.iOS系统机制](/13.iOS系统机制/)
 
 
-* ## [14.面试题目详解](/14.面试题目详解/README.md)
+* ## [14.面试题目详解](/14.面试题目详解/)
 
 
-* ## [15.use Third-Party Libraries](/15.use Third-Party Libraries/02.Test/README.md)
+* ## [15.use Third-Party Libraries](/15.use Third-Party Libraries/02.Test/)
 
 * ## [Swift 语法基本信息](/Swift 语法基本信息/)
 
