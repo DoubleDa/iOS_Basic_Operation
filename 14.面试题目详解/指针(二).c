@@ -5,6 +5,6 @@ int main(){
 	printf("%d\n",*(p[0]));
 
 	int arr[3] = {1,2,3}; 
-	int (*q)[3] = &arr;	// p为指向数组的指针
+	int (*q)[3] = &arr;	// q为指向数组的指针
 	printf("%d\n",(*q)[0]);
 }
