@@ -127,7 +127,7 @@
 	- GHUnit/OCMock(两个都是GitHub上面的第三方库)
 
 23. 关于引用计数:
-	- ```
+	-  ```
 		NSString *str = [NSStringstringWithFormat : @"test" ]; //0 + 1 = 1
 		[str retain];//1 + 1 = 2
 		[ary addObject:str];//2 + 1 = 3
@@ -135,7 +135,8 @@
 		[str release];//4 - 1 = 3
 		[str release];//4 - 2 = 2
 		[ary removeAllObjects]; //2 - 1 = 1
-	  ```
+	   ```
+
 
 24. NSXMLParser构造方法有哪些:
 	- initWithContentsOfURL
