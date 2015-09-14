@@ -5,6 +5,7 @@
 	- connection: didReceiveData:  // 接收到服务器返回的数据时调用，服务器返回的数据比较大时会分多次调用
 	- connection: didFinishLoading:  // 服务器返回的数据完全接收完毕后调用
 	- connection: didFailWithError:  // 请求出错时调用，比如请求超时
+	- initWithRequest:delegate 		// 不是代理是方法
 
 2. assign,retain,weak,strong,copy,unsafe_unretained
 	- readonly,readwrite：是控制属性的访问权限，readonly只生成getter方法，其他类是无法修改其值的。readwrite是会同时生成getter和setter方法，其他类可以修改其值。
