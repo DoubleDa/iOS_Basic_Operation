@@ -127,7 +127,7 @@
 	- GHUnit/OCMock(两个都是GitHub上面的第三方库)
 
 23. 关于引用计数:
-	-  
+	 -  
 	   ```
 		NSString *str = [NSStringstringWithFormat : @"test" ]; //0 + 1 = 1
 		[str retain];//1 + 1 = 2

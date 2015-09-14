@@ -1,0 +1,94 @@
+#iOS操作系统整体架构层次
+
+***
+
+- Core OS layer(核心操作层): 包含核心部分、文件系统、网络基础、安全特性、能量管理和一些设备驱动，还有一些系统级别的API。Framework基本都是基于c语言的接口。
+	- 组件: 
+		- OS X Kernel    
+		- Mach 3.0   
+		- BSD
+	    - Sockets    
+	    - Power Mgmt 
+	    - File System
+	 	- Keychain   
+	 	- Certificates  
+	 	- Security
+	 	- Bonjour
+ 	- Accelerate Framework
+ 	- External Accessory Framework
+ 	- Security Framework
+ 	- System
+
+- Core Services layer(核心服务层): 提供核心服务，例如字符串处理函数、集合管理、网络管理、URL处理工具、联系人维护、偏好设置等。基本都是基于c语言的接口。
+	- 组件:
+		- Collections   
+		- Address Book 
+		- Networking
+    	- File Access    
+     	- SQLite    
+      	- Core Location
+ 		- Net Services  
+      	- Threading    
+      	- Preferences
+    	- URL Utilities
+	- Address Book Framework
+	- CFNetwork Framework
+	- Core Data Framework、
+	- Core Foundation Framework、
+	- Core Location Framework、
+	- Core Media Framework、
+	- Core Telephony Framework、
+	- Event Kit Framework、
+	- Foundation Framework、
+	- Mobile Core Services Framework、
+	- Quick Look Framework、
+	- Store Kit Framework、
+	- System Configuration Framework、
+	- Block Objects、
+	- Grand Central Dispatch  、
+	- In App Purchase、
+	- Location Services、
+	- SQLite、
+	- XML Support
+- Media layer(媒体层): 该层框架和服务依赖Core Services层，向Cocoa Touch层提供画图和多媒体服务，如声音、图片、视频等。
+	- 组件:
+		- Core Audio   
+		- OpenGL    
+		- Audio Mixing
+    	- Audio Recording 
+      	- Video Playback 
+        - JPG，PNG，TIFF
+    	- PDF   
+     	- Quartz   
+       	- Core Animation
+    	- OpenGL ES
+	- Core Graphics(Quartz)
+	- Core Animation、
+	- OpenGL ES、
+	- Core Text、
+	- Image I/O、
+	- Assets Library Framework、
+	- Media Player Framework、
+	- AV Foundation、
+	- OpenAL、
+	- Core Audio Frameworks、
+	- AV Foundation、
+	- Core Media
+- Cocoa Touch layer(可触摸层): 基于iPhone OS应用层直接调用层,如触摸事件、照相机管理等，包该层含UIKit框架和Foundation框架。基本都是基于OC的接口。
+	- 组件:
+		- Multi-Touch Events 
+		- Core Motion  
+		- Camera
+    	- View Hierarchy 
+      	- Localization 
+        - Alerts
+    	- Web Views   
+      	- Image Picker  
+       	- Multi-Touch Controls
+	- Address Book UI Framework、
+	- Event Kit UI Framework、
+	- Game Kit Framework、
+	- iAd Framework、
+	- Map Kit Framework、
+	- Message UI Framework、
+	- UIKit Framework
