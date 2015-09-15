@@ -1,5 +1,7 @@
 #Swift内存管理(ARC-自动引用计数)
 
+ps:autorelease pool
+
 ###概念：
 
 > 引用计数
