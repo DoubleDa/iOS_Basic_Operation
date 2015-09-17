@@ -13,7 +13,7 @@ class GCDTest{
     
     // 1
     func testGCD(){
-        var queue = dispatch_queue_create("com.gcd.test", DISPATCH_QUEUE_CONCURRENT)
+        let queue = dispatch_queue_create("edu.hhu.gcdTest", DISPATCH_QUEUE_CONCURRENT) // DISPATCH_QUEUE_SERIAL
         dispatch_async(queue) { () -> Void in
             print("在这里停两秒")
             sleep(2)
@@ -59,7 +59,7 @@ class GCDTest{
     
     // 4.barrier 避免在写文件时候正好有线程来读取
     /**
-    如果添加dispatch_barrier_async的时候，其他的block（包括上面4个block）还没有开始执行，那么会先执行dispatch_barrier_async里的任务，其他block全部处于等待状态。如果添加dispatch_barrier_async的时候，已经有block在执行了，那么dispatch_barrier_async会等这些block执行完后再执行。
+        如果添加dispatch_barrier_async的时候，其他的block（包括上面4个block）还没有开始执行，那么会先执行dispatch_barrier_async里的任务，其他block全部处于等待状态。如果添加dispatch_barrier_async的时候，已经有block在执行了，那么dispatch_barrier_async会等这些block执行完后再执行。
     */
     
     func barrier(){
