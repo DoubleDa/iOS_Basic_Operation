@@ -154,8 +154,5 @@ iOS界面绘图API、控件等知识。(共6课程，181分钟)。
 
 * ## [14.面试题目详解](/14.面试题目详解/)
 
-
-* ## [15.use Third-Party Libraries](/15.use Third-Party Libraries/02.Test/)
-
 * ## [Swift 语法基本信息](/Swift 语法基本信息/)
 
