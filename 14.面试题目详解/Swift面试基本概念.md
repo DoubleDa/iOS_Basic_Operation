@@ -24,6 +24,7 @@
 		2. 处理scalar值时使用‘p’
 		3. 输出view的层级关系. （但是被隐藏的命令）, recursiveDescription。
 		4. 其它命令(help):
+		
 			　　1.命令                        解释  
 			　　2.break NUM               在指定的行上设置断点。  
 			　　3.bt                      显示所有的调用栈帧。该命令可用来显示函数的调用顺序。  
