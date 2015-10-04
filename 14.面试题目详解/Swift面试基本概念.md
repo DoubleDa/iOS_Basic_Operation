@@ -1,5 +1,10 @@
 # Swift面试基本概念
 
+- Swift语言的基本类型: 首字母要大写,基本类型不能直接定义类型变量(Int a = 10 错误写法，与C不同)
+	- 整形(Int)
+	- 浮点类型(Float,Double)
+	- 字符类型(String)
+	- 集合类型(Array,Dictionary)
 - Swift中有没有隐式转换类型 
   - option类型 c，c++ int 转化为double
 - 一个队列并行10个线程
