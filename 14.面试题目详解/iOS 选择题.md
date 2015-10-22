@@ -13,9 +13,12 @@
 		 * 在non-ARC中，assign和retain是一组，assign的对象属性引用计数不变，而retain会被+1。
 		 * 对应的在ARC中，weak和strong是一组，weak的对象属性引用计数不变，而strong会被+1。
 		 * assign还用来赋值非对象属性，例如，int，double，BOOL，char等。
-		 * copy用来设置不可变的对象属性，例如，NSString，NSArray，NSDictionary等。
+		 * copy用来设置不可变的对象属性，例如，NSString，NSArray，NSDictionary等。当一个类继承NSObject，那么这个类里面的属性需要使用copy
 		 * 在ARC中，一个属性被设置为weak，当出了作用域，其值会被设置成nil。与其相对应的是unsafe_unretained，unsafe_unretained不会改变对象属性的引用计数，同时出了作用域的时候，其值也不会被设置成nil。unsafe_unretained相当于non-ARC中的assign。
 		 * atomic,nonatomic:atomic是原子操作，nonatomic是非原子操作，一般常用的是nonatomic,atomic原子属性的是多线程安全的。
+	- 　　copy与retain的区别：copy是创建一个新对象，retain是创建一个指针，引用对象计数加1。Copy属性表示两个对象内容相同，新的对象retain为1 ，与旧有对象的引用计数无关，旧有对象没有变化。copy减少对象对上下文的依赖。
+
+　　retain属性表示两个对象地址相同（建立一个指针，指针拷贝），内容当然相同，这个对象的retain值+1也就是说，retain 是指针拷贝，copy 是内容拷贝。
 
 3.  NSRunLoop的以下描述: 线程是默认启动run loop的 	
 	- Runloop的作用在于当有事情要做时它使当前的thread工作，没有事情做时又使thread休眠sleep。Runloop并不是由系统自动控制的，尤其是对那些新建的次线程需要对其进行显示的控制。
