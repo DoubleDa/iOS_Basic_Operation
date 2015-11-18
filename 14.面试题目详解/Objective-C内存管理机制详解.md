@@ -1,6 +1,6 @@
 # Objective-C 内存管理机制详解 
 
-// 如何避免retain 的死循环
+// 如何避免retain 的死循环 callstack, cocoa框架， 非 Cocoa程序？
 
 1. 在 非ARC 中内存的创建及释放:
 
@@ -53,7 +53,7 @@
   3. 持有者就是指向对象的指针，如果是strong修饰的，即是对象的持有者，如果是weak属性的，则不是持有者
 
 
- 4.ARC机制的使用规则
+4.ARC机制的使用规则
 
    对于ARC机制的使用，苹果发布了几条重要的规则需要开发者遵守。单单看那些生搬硬套的东西难免生涩，根据开发经验将规则总结如下：
 
@@ -73,4 +73,43 @@
 
    (8)Core Foundation不适合ARC，该创建的仍创建，该释放的仍释放。
 
- 
+5. autoreleasepool: 可以在某些情况下，大幅度降低程序的内存占用
+  
+ -[NSAutoreleasePool release] 方法最终通过 AutoreleasePoolPage 为结点的双向链表来实现
+
+ 我们是不需要手动添加 autoreleasepool 的，使用线程自动维护的 autoreleasepool就好了，但是有3种情况需要手动添加 autoreleasepool 
+
+       1. 编写的程序不是基于 UI 框架的，基于命令行程序时，如 AppKit 等 Cocoa 框架
+       2. 编写的循环中创建了大量的临时对象
+       3. 创建了一个辅助线程 (非Cocoa程序创建线程时才需要)
+       4. 长时间在后台运行的任务
+
+ Autorelease实际上只是把对release的调用延迟了，对于每一个Autorelease，系统只是把该Object放入了当前的Autorelease pool中，当该pool被释放时，该pool中的所有Object会被调用Release。
+
+ 对于每一个 Runloop ，系统会隐式的创建一个 Autorelease pool，这样所有的 release pool 会构成一个像 CallStack 一样的栈式结构，在每一个 RunLoop 结束时，当前栈顶的 Autorelease pool 会被销毁，这样这个 pool 里面的每个 Object 会被 release
+
+ 一个 UI事件， Timer call,delegate call 都会是一个新的 RunLoop
+
+ 一定要注意Autorelease pool的生存周期，理解Runloop，避免在对象被释放后使用。
+
+ [NSString stringWithFormat:]这类函数返回的对象是不需要再自己release的，它已经被autorelease了, 如果你想把它当一个全局对象使用，那必须自己再retain， 释放时再release。
+
+6. MAR 和 ARC
+
+ MRC（Mannul Reference Counting）和ARC(Automatic Reference Counting)，分别对应着手动引用计数和自动引用计数。
+
+ 是计数，不是“GC、垃圾回收”什么的，就是说，在ObjectiveC的开发中，ARC不代表像Java那样有GC做垃圾回收，所以本质上还是要“手动”管理内存的。也就是说，我们在ARC环境下写的代码，不用自己手动插入“ retain、release这些消息 ”，ARC会在编译时为我们在合适的位置插入，释放不必要的内存。
+
+ 但是在ARC时代，我们不用手动发送 autorelease 消息，ARC会自动帮我们加。而这个时候， @autoreleasepool 做的事情，跟 NSAutoreleasePool 就一模一样了。
+
+ ```
+ NSArray *urls = <# An array of file URLs #>;
+ for (NSURL *url in urls) {
+  @autoreleasepool {
+    NSError *error;
+    NSString *fileContents = [NSString stringWithContentsOfURL:url
+                     encoding:NSUTF8StringEncoding error:&error];
+    /* Process the string, creating and autoreleasing more objects. */
+  }
+ }
+ ```
