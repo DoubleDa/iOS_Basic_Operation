@@ -16,10 +16,14 @@
 		 * copy用来设置不可变的对象属性，例如，NSString，NSArray，NSDictionary等。当一个类继承NSObject，那么这个类里面的属性需要使用copy
 		 * 在ARC中，一个属性被设置为weak，当出了作用域，其值会被设置成nil。与其相对应的是unsafe_unretained，unsafe_unretained不会改变对象属性的引用计数，同时出了作用域的时候，其值也不会被设置成nil。unsafe_unretained相当于non-ARC中的assign。
 		 * atomic,nonatomic:atomic是原子操作，nonatomic是非原子操作，一般常用的是nonatomic,atomic原子属性的是多线程安全的。
-	- 　　copy与retain的区别：copy是创建一个新对象，retain是创建一个指针，引用对象计数加1。Copy属性表示两个对象内容相同，新的对象retain为1 ，与旧有对象的引用计数无关，旧有对象没有变化。copy减少对象对上下文的依赖。
-
-　　retain属性表示两个对象地址相同（建立一个指针，指针拷贝），内容当然相同，这个对象的retain值+1也就是说，retain 是指针拷贝，copy 是内容拷贝。
-
+	- copy与retain的区别：
+		 * copy是创建一个新对象，retain是创建一个指针，引用对象计数加1。Copy属性表示两个对象内容相同，新的对象retain为1 ，与旧有对象的引用计数无关，旧有对象没有变化。copy减少对象对上下文的依赖。
+		 * retain属性表示两个对象地址相同（建立一个指针，指针拷贝），内容当然相同，这个对象的retain值+1也就是说，retain 是指针拷贝，copy 是内容拷贝。
+	- assign与retain的区别:
+		 * assign属性: 当数据类型为int、float等原生类型时，可以使用assign，否则可能导致内存泄露。例如当使用malloc分配了一块内存，并把它的地址赋值给了指针a，后来如果希望指针b也共享这块内存，于是讲a赋值给(assgin)b。这时就用到了assgin，此时a和b指向同一块内存。但是现在问题出现了，当a不再需要这块内存时，能都直接释放呢？肯定是不能的，因为a并不知道b是否还在使用这块内存，如果a释放了，那么b在使用这块内存的时候引起程序crash掉。
+		 * retain属性: retain属性就是为了解决上述问题而提出的，使用了引用计数（reference counting），还是上面那个例子，我们给那块内存设一个引用计数，当内存呗分配并且赋值给a时，引用计数是1.当把a赋值给b时引用计数增加到2.这时如果a不再使用这块内存，它只需要把引用计数减1，表明自己不再拥有这块内存。b不再使用这块内存时也把引用计数减1.当引用计数变为0的时候，代表该内存不再被任何指针所引用，系统可以直接释放掉。此时系统自动调用dealloc函数，内存被回收。
+		 * copy属性: copy是你不希望a和b共享一块内存时会使用到。a和b各自有自己的内存。
+		 
 3.  NSRunLoop的以下描述: 线程是默认启动run loop的 	
 	- Runloop的作用在于当有事情要做时它使当前的thread工作，没有事情做时又使thread休眠sleep。Runloop并不是由系统自动控制的，尤其是对那些新建的次线程需要对其进行显示的控制。
 	- 有3类对象可以被run loop监控：sources、timers、observers。当这些对象需要处理的时候，为了接收回调，首先必须通过 CFRunLoopAddSource ,CFRunLoopAddTimer 或者 CFRunLoopAddObserver 把这些对象放入run loop。 要停止接收它的回调，可以通过CFRunLoopRemoveSource从run loop中移除某个对象。 
