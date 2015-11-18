@@ -36,6 +36,8 @@ class DirectionsViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     directionsTableView.contentInset = UIEdgeInsetsMake(-36, 0, -20, 0)
+    addActivityIndicator()
+    calculateSegmentDirections(0, time: 0, routes: [])
   }
 
   func addActivityIndicator() {
@@ -57,15 +59,92 @@ class DirectionsViewController: UIViewController {
     navigationController?.navigationBarHidden = false
     automaticallyAdjustsScrollViewInsets = false
   }
+    
+    // sort the routes from least to greast expected travel time, the pull out the first index,the index with the shortest expected travel time
+    func calculateSegmentDirections(index: Int,var time: NSTimeInterval, var routes: [MKRoute]) {
+            // 1
+            let request: MKDirectionsRequest = MKDirectionsRequest()
+            request.source = locationArray[index].mapItem
+            request.destination = locationArray[index+1].mapItem
+            // 2
+            request.requestsAlternateRoutes = true
+            // 3
+            request.transportType = .Automobile
+            // 4
+            let directions = MKDirections(request: request)
+            directions.calculateDirectionsWithCompletionHandler ({
+                (response: MKDirectionsResponse?, error: NSError?) in
+                if let routeResponse = response?.routes {
+                    let quickestRouteForSegment: MKRoute = routeResponse.sort({$0.expectedTravelTime < $1.expectedTravelTime})[0]
+                    // 1
+                    routes.append(quickestRouteForSegment)
+                    // 2
+                    time += quickestRouteForSegment.expectedTravelTime
+                    
+                    if index+2 < self.locationArray.count {
+                        self.calculateSegmentDirections(index+1, time: time, routes: routes)
+                    } else {
+                        self.showRoute(routes, time: time)
+                        self.hideActivityIndicator()
+                    }
+                } else if let _ = error {
+                    let alert = UIAlertController(title: nil,
+                        message: "Directions not available.", preferredStyle: .Alert)
+                    let okButton = UIAlertAction(title: "OK",
+                        style: .Cancel) { (alert) -> Void in
+                            self.navigationController?.popViewControllerAnimated(true)
+                    }
+                    alert.addAction(okButton)
+                    self.presentViewController(alert, animated: true,
+                        completion: nil)
+                }
+            })
+        }
+    
+    func showRoute(routes:[MKRoute],time:NSTimeInterval){
+        var directionsArray = [(startingAddress:String,endingAddress:String,route:MKRoute)]()
+        for i in 0..<routes.count{
+            plotPolyline(routes[i])
+            directionsArray += [(locationArray[i].textField.text!,locationArray[i+1].textField.text!,routes[i])]
+        }
+        displayDirections(directionsArray)
+        printTimeToLabel(time)
+    }
+    
+    func plotPolyline(route:MKRoute){
+        mapView.addOverlay(route.polyline)
+        if mapView.overlays.count == 1{
+            mapView.setVisibleMapRect(route.polyline.boundingMapRect, edgePadding: UIEdgeInsetsMake(10.0, 10.0, 10.0, 10.0), animated: false)
+        }
+    }
+    
+    func displayDirections(directionsArray:[(startingAddress:String,endingAddress:String,route:MKRoute)]){
+        directionsTableView.directionsArray = directionsArray
+        directionsTableView.delegate = directionsTableView
+        directionsTableView.dataSource = directionsTableView
+        directionsTableView.reloadData()
+    }
+    
+    func printTimeToLabel(time:NSTimeInterval){
+        let timeString = time.formatted()
+        totalTimeLabel.text = "Total Time: \(timeString)"
+    }
 }
 
 extension DirectionsViewController: MKMapViewDelegate {
   
+    // this gives each route segment a different color
   func mapView(mapView: MKMapView, rendererForOverlay overlay: MKOverlay) -> MKOverlayRenderer {
     
     let polylineRenderer = MKPolylineRenderer(overlay: overlay)
     if (overlay is MKPolyline) {
-      polylineRenderer.strokeColor = UIColor.blueColor().colorWithAlphaComponent(0.75)
+        if mapView.overlays.count == 1{
+            polylineRenderer.strokeColor = UIColor.blueColor().colorWithAlphaComponent(0.75)
+        }else if mapView.overlays.count == 2{
+            polylineRenderer.strokeColor = UIColor.greenColor().colorWithAlphaComponent(0.75)
+        }else if mapView.overlays.count == 3{
+            polylineRenderer.strokeColor = UIColor.redColor().colorWithAlphaComponent(0.75)
+        }
       polylineRenderer.lineWidth = 5
     }
     return polylineRenderer

@@ -62,14 +62,14 @@ extension AddressTableView: UITableViewDelegate {
   }
   
   func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-    // 2.x.1
+    // 2.x.1 when the row is less than the length of the address array
     if addresses.count > indexPath.row{
-        // 2.x.2
+        // 2.x.2 update the current text field to contain the selected address
         currentTextField.text = addresses[indexPath.row]
         // 2.x.3
         let mapItem = MKMapItem(placemark: MKPlacemark(coordinate: placemarkArray[indexPath.row].location!.coordinate, addressDictionary: placemarkArray[indexPath.row].addressDictionary as![String:AnyObject]? ))
         mainViewController.locationTuples[currentTextField.tag-1].mapItem = mapItem
-        // 2.x.4
+        // 2.x.4 selected the current enter button
         sender.selected = true
     }
     removeFromSuperview()

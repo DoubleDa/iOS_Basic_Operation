@@ -56,6 +56,8 @@ extension DirectionsTableView: UITableViewDelegate {
     label.numberOfLines = 5
     setLabelBackgroundColor(label, section: section)
     
+    label.text = "SEGMENT #\(section+1)\n\nStarting point: \(directionsArray[section].startingAddress)\n"
+    
     return label
   }
   
@@ -65,6 +67,15 @@ extension DirectionsTableView: UITableViewDelegate {
     label.font = UIFont(name: "HoeflerText-Regular", size: 14)
     label.numberOfLines = 8
     setLabelBackgroundColor(label, section: section)
+    
+    //1
+    let route = directionsArray[section].route
+    //2
+    let time = route.expectedTravelTime.formatted()
+    //3
+    let miles = route.distance.miles()
+    //4
+    label.text = "Ending point:\(directionsArray[section].endingAddress)\n\nDistance:\(miles)miles\n\nExpected Travel Time:\(time)"
     
     return label
   }
@@ -97,6 +108,17 @@ extension DirectionsTableView: UITableViewDataSource {
     cell.textLabel?.numberOfLines = 4
     cell.textLabel?.font = UIFont(name: "HoeflerText-Regular", size: 12)
     cell.userInteractionEnabled = false
+    
+    //1
+    let steps = directionsArray[indexPath.section].route.steps
+    //2
+    let step = steps[indexPath.row]
+    //3
+    let instructions = step.instructions
+    //4
+    let distance = step.distance.miles()
+    // 5
+    cell.textLabel?.text = "\(indexPath.row+1). \(instructions) - \(distance) miles "
     
     return cell
   }

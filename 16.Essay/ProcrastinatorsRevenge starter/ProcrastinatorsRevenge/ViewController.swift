@@ -63,6 +63,7 @@ class ViewController: UIViewController {
             // Fallback on earlier versions
         }
     }
+    
   }
   
   override func viewWillAppear(animated: Bool) {
@@ -174,6 +175,7 @@ class ViewController: UIViewController {
 
 extension ViewController: UITextFieldDelegate {
   
+    //
   func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
     enterButtonArray.filter{$0.tag == textField.tag}.first!.selected = false
     locationTuples[textField.tag-1].mapItem = nil
