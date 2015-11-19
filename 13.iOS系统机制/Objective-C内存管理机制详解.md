@@ -113,3 +113,11 @@
   }
  }
  ```
+
+7. 借助工具解决内存问题(iOS/OS X 内存管理)
+
+ 引入 ARC 新的内存管理机制之后如何选择 ownership qualifiers(__strong,__weak,__unsafe_unretained和__autoreleasing)来管理内存
+
+ - 悬挂指针(Dangling Pointer)问题,即指针指向的对象已经释放或回收，但没有对指针做任何的修改(即没有设为nil)，仍然指向原来的回收地址。
+   - 一般来说，出现 EXC_BAD_ACCESS 错误的原因都是悬挂指针导致的
+ - 启用 NSZombieEnabled,获取更多的 crash 信息
