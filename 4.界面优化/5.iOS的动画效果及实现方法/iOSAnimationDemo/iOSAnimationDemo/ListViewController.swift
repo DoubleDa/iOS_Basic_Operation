@@ -11,7 +11,7 @@ import UIKit
 class ListViewController: UIViewController {
 
     var redSquareView:UIView = UIView(frame: CGRect(x: 20, y: 100, width: 50, height: 50))
-
+    var blueSqureView:UIView = UIView(frame: CGRect(x: 50, y: 100, width: 50, height: 50))
 
     
     override func viewDidLoad() {
@@ -19,12 +19,15 @@ class ListViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         redSquareView.backgroundColor = UIColor.redColor().colorWithAlphaComponent(0.75)
+        blueSqureView.backgroundColor = UIColor.greenColor().colorWithAlphaComponent(0.75)
         self.view.addSubview(redSquareView)
+        self.view.addSubview(blueSqureView)
 
     }
     override func viewDidAppear(animated: Bool) {
         UIView.animateWithDuration(0.5) { () -> Void in
             self.redSquareView.backgroundColor = UIColor.magentaColor().colorWithAlphaComponent(0.75)
+            self.blueSqureView.center.x = self.view.frame.size.width - self.blueSqureView.bounds.width
         }
     }
 
