@@ -31,12 +31,13 @@ class ListViewController: UIViewController {
         UIView.animateWithDuration(0.5) { () -> Void in
             self.redSquareView.backgroundColor = UIColor.magentaColor().colorWithAlphaComponent(0.75)
             self.blueSqureView.center.x = self.view.frame.size.width - self.blueSqureView.bounds.width
-            self.yellowSquareView.transform.a = 2
+//            self.yellowSquareView.transform.a = 2
 //            self.yellowSquareView.transform.b = 2
 //            self.yellowSquareView.transform.c = 2
 //            self.yellowSquareView.transform.d = 2
 //            self.yellowSquareView.transform.tx = 2
 //            self.yellowSquareView.transform.ty = 2
+            self.yellowSquareView.transform = CGAffineTransformTranslate(self.yellowSquareView.transform, 50, 50)
         }
     }
 
